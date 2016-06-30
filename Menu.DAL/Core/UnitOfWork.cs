@@ -1,22 +1,24 @@
 ﻿using System;
 using Menu.DAL.Core.Interfaces;
-using Menu.DAL.Repositories;
 using Menu.DAL.RepositoryInterfaces;
 
 namespace Menu.DAL.Core
 {
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
-        private MenuDbContext db = new MenuDbContext();
-        private IMenuItemRepository _menuRepository;
-        private bool _disposed = false;
+        private bool _disposed;
+        private readonly MenuDbContext _db;
 
-        public IMenuItemRepository MenuItems => 
-            _menuRepository ?? (_menuRepository = new MenuItemRepository(db));
+        public IMenuItemRepository MenuItems { get; set; }
+
+        public UnitOfWork(MenuDbContext dbContext)
+        {
+            _db = dbContext;
+        }
 
         public void Save()
         {
-            db.SaveChanges();
+            _db.SaveChanges();
         }
 
         public virtual void Dispose(bool disposing)
@@ -25,7 +27,7 @@ namespace Menu.DAL.Core
             {
                 if (disposing)
                 {
-                    db.Dispose();
+                    _db.Dispose();
                 }
                 this._disposed = true;
             }
@@ -36,7 +38,6 @@ namespace Menu.DAL.Core
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
 
     }
 }

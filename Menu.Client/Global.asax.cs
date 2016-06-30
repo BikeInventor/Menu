@@ -15,6 +15,7 @@ namespace Menu.Client
             container.Install(new ApplicationCastleInstaller());
 
             var castleControllerFactory = new CastleControllerFactory(container);
+
             ControllerBuilder.Current.SetControllerFactory(castleControllerFactory);
 
             AreaRegistration.RegisterAllAreas();

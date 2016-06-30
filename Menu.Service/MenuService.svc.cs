@@ -10,12 +10,11 @@ namespace Menu.Service
 {
     public class MenuService : IMenuService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork;
 
-        //TODO: Внедрить в конструктор UoW
         public MenuService()
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = UnitOfWorkFactory.Create();
         }
 
         public int AddMenuItem(MenuItemData menuItem)
@@ -26,7 +25,7 @@ namespace Menu.Service
                 Amount = menuItem.Amount,
                 Price = menuItem.Price
             };
-            
+
             _unitOfWork.MenuItems.Add(newItem);
             _unitOfWork.Save();
 

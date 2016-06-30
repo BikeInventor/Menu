@@ -8,9 +8,9 @@ namespace Menu.DAL
     class MenuDbInitializer : DropCreateDatabaseIfModelChanges<MenuDbContext>
     {
         protected override void Seed(MenuDbContext db)
-        {
+        {          
             //TODO: впихнуть при помощи IoC
-            IUnitOfWork unitOfWork = new UnitOfWork();
+            IUnitOfWork unitOfWork = new UnitOfWork(db);
 
             var beer = new MenuItem() { Name = "Балтика 9", Amount = "0.5л", Price = 100.0M };
             var meat = new MenuItem() { Name = "Стейк из свинины", Amount = "250гр.", Price = 500.0M };

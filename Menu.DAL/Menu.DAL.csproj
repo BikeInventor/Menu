@@ -66,6 +66,7 @@
     <Compile Include="Core\Interfaces\IRepository.cs" />
     <Compile Include="Core\Interfaces\IUnitOfWork.cs" />
     <Compile Include="Core\RepositoryBase.cs" />
+    <Compile Include="Core\UnitOfWorkFactory.cs" />
     <Compile Include="MenuDbContext.cs" />
     <Compile Include="MenuDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

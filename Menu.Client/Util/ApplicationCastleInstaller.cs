@@ -13,10 +13,8 @@ namespace Menu.Client.Util
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            // регистрируем компоненты приложения
             container.Register(Component.For<IMenuService>().ImplementedBy<MenuClient>());
 
-            // регистрируем каждый контроллер по отдельности
             var controllers = Assembly.GetExecutingAssembly()
                 .GetTypes().Where(x => x.BaseType == typeof(Controller)).ToList();
             foreach (var controller in controllers)
