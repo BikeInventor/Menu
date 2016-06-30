@@ -66,7 +66,6 @@
     <Compile Include="Core\Interfaces\IRepository.cs" />
     <Compile Include="Core\Interfaces\IUnitOfWork.cs" />
     <Compile Include="Core\RepositoryBase.cs" />
-    <Compile Include="Core\UnitOfWorkFactory.cs" />
     <Compile Include="MenuDbContext.cs" />
     <Compile Include="Migrations\201606300839449_InitialCreate.cs" />
     <Compile Include="Migrations\201606300839449_InitialCreate.Designer.cs">
@@ -85,6 +84,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Menu.Common\Menu.Common.csproj">
+      <Project>{4354FC59-38FA-4D93-863E-8B3E397C6183}</Project>
+      <Name>Menu.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu.Data\Menu.Data.csproj">
       <Project>{3eef2052-a956-41e1-b935-bf72278e690a}</Project>
       <Name>Menu.Data</Name>

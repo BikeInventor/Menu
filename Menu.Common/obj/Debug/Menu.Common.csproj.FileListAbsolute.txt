@@ -1,0 +1,9 @@
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Menu.Common.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Menu.Common.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Core.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Windsor.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Core.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Windsor.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.pdb

@@ -16,3 +16,5 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\obj\Debug\Menu.Business.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\obj\Debug\Menu.Business.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\obj\Debug\Menu.Business.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\bin\Debug\Menu.Common.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Business\bin\Debug\Menu.Common.pdb

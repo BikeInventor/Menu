@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ServiceModel;
-using AutoMapper;
+﻿using System.Collections.Generic;
+using Menu.Business.Core;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
-using Menu.Data;
-using Menu.DAL.Core;
-using Menu.DAL.Core.Interfaces;
 using Menu.Service.Mappings;
-using Menu.Business.Managers;
+using Menu.Business.ManagersInterfaces;
 
 namespace Menu.Service
 {
     public class MenuService : IMenuService
     {
-        private MenuManager _menuManager = new MenuManager();
+        private readonly IMenuManager _menuManager;
 
         public MenuService()
         {
-            AutoMapperConfiguration.Configure();
+            _menuManager = ManagerFactory.GetManager<IMenuManager>();
         }
 
         public int AddMenuItem(MenuItemData menuItem)

@@ -76,6 +76,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\Initializer.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\DomainToDtoMappingProfile.cs" />
     <Compile Include="Mappings\DtoToDomainMapperProfile.cs" />
@@ -97,9 +98,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Menu.Bootstrapper\Menu.Bootstrapper.csproj">
+      <Project>{E1457C33-3C71-4D6E-82F5-27FCFBFA1004}</Project>
+      <Name>Menu.Bootstrapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu.Business\Menu.Business.csproj">
       <Project>{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}</Project>
       <Name>Menu.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Menu.Common\Menu.Common.csproj">
+      <Project>{4354FC59-38FA-4D93-863E-8B3E397C6183}</Project>
+      <Name>Menu.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Menu.Contracts\Menu.Contracts.csproj">
       <Project>{5f84fd31-1c16-43ca-bfe4-35ea508aa3b7}</Project>

@@ -5,16 +5,19 @@ using AutoMapper;
 using Menu.Business.Core;
 using Menu.Business.ManagersInterfaces;
 using Menu.Contracts.DataContracts;
-using Menu.Contracts.ServiceContracts;
 using Menu.Data;
-using Menu.DAL.Core;
 using Menu.DAL.Core.Interfaces;
 
 namespace Menu.Business.Managers
 {
     public class MenuManager : ManagerBase, IMenuManager
     {
-        private IUnitOfWork _unitOfWork = UnitOfWorkFactory.Create();
+        private readonly IUnitOfWork _unitOfWork;
+
+        public MenuManager(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
         public int AddMenuItem(MenuItemData menuItem)
         {
@@ -61,8 +64,6 @@ namespace Menu.Business.Managers
         {
             ExecuteWithFaultHandling(() =>
             {
-               // var itemToUpdate = _unitOfWork.MenuItems.Get(updatedItem.Id);
-
                 if (!_unitOfWork.MenuItems.IsExist(updatedItem.Id))
                 {
                     var ex = new NotFoundException

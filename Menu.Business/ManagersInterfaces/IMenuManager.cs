@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Menu.Business.Core;
 using Menu.Contracts.DataContracts;
 
 namespace Menu.Business.ManagersInterfaces
 {
-    public interface IMenuManager
+    public interface IMenuManager : IManager<MenuItemData>
     {
         int AddMenuItem(MenuItemData menuItem);
 

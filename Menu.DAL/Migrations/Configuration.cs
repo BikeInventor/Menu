@@ -2,6 +2,7 @@ using Menu.Data;
 using Menu.DAL.Core;
 using Menu.DAL.Core.Interfaces;
 using System.Data.Entity.Migrations;
+using Menu.Common;
 
 namespace Menu.DAL.Migrations
 {
@@ -16,7 +17,7 @@ namespace Menu.DAL.Migrations
 
         protected override void Seed(Menu.DAL.MenuDbContext context)
         {
-            IUnitOfWork unitOfWork = UnitOfWorkFactory.Create();
+            IUnitOfWork unitOfWork = Dependencies.Container.Resolve<IUnitOfWork>();
 
             var beer = new MenuItem() { Name = "Балтика 9", Amount = "0.5л", Price = 100.0M };
             var meat = new MenuItem() { Name = "Стейк из свинины", Amount = "250гр.", Price = 500.0M };
