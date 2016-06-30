@@ -2,16 +2,18 @@
 
 namespace Menu.DAL.Core.Interfaces
 {
-    public interface IRepository<T>
+    public interface IRepository<TEntity, TId>
     {
-        void Add(T entity);
+        TEntity Get(TId id);
 
-        void Update(T entity);
+        void Add(TEntity entity);
 
-        void Delete(T entity);
+        void Update(TEntity entity);
 
-        T Get(int id);
+        void Delete(TEntity entity);
 
-        IEnumerable<T> GetAll();
+        IEnumerable<TEntity> GetAll();
+
+        bool IsExist(TId id);
     }
 }

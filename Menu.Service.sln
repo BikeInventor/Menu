@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu.Proxies", "Menu.Proxie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu.Data", "Menu.Data\Menu.Data.csproj", "{3EEF2052-A956-41E1-B935-BF72278E690A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Menu.Business", "Menu.Business\Menu.Business.csproj", "{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{3EEF2052-A956-41E1-B935-BF72278E690A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EEF2052-A956-41E1-B935-BF72278E690A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EEF2052-A956-41E1-B935-BF72278E690A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

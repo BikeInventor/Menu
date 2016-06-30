@@ -19,10 +19,21 @@ namespace Menu.Client.Controllers
 
         public ActionResult Index()
         {
-            var viewmodelItems = Mapper.Map<IEnumerable<MenuItemData>, 
-                IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
+            try
+            {
+                var viewmodelItems = Mapper.Map<IEnumerable<MenuItemData>,
+               IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
 
-            return View(viewmodelItems);
+                return View(viewmodelItems);
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
         }
 
         public ActionResult Create()
@@ -33,24 +44,68 @@ namespace Menu.Client.Controllers
         [HttpPost]
         public ActionResult Create(ItemViewModel itemViewModel)
         {
-            var menuItem = Mapper.Map<ItemViewModel, MenuItemData> (itemViewModel);
-            _menuClient.AddMenuItem(menuItem);
-            return Redirect("/Home/Index");
+            try
+            {
+                var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                _menuClient.AddMenuItem(menuItem);
+                return Redirect("/Home/Index");
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }          
         }
 
         public ActionResult Edit(int id)
         {
-            var editItem = _menuClient.GetMenuItem(id);
-            var editItemViewModel = Mapper.Map<MenuItemData, ItemViewModel>(editItem);
-            return View(editItemViewModel);
+            try
+            {
+                var editItem = _menuClient.GetMenuItem(id);
+                var editItemViewModel = Mapper.Map<MenuItemData, ItemViewModel>(editItem);
+                return View(editItemViewModel);
+            }
+            catch (FaultException<NotFoundException> ex)
+            {
+                return RedirectToAction("Error",
+                    Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
+
         }
 
         [HttpPost]
         public ActionResult Edit(ItemViewModel itemViewModel)
         {
-            var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
-            _menuClient.UpdateMenuItem(editItem);
-            return Redirect("/Home/Index");
+            try
+            {
+                var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                _menuClient.UpdateMenuItem(editItem);
+                return Redirect("/Home/Index");
+            }
+            catch (FaultException<NotFoundException> ex)
+            {
+                return RedirectToAction("Error",
+                    Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
         }
 
         public ActionResult Delete(int id)
@@ -58,13 +113,21 @@ namespace Menu.Client.Controllers
             try
             {
                 _menuClient.DeleteMenuItem(id);
+                return Redirect("/Home/Index");
             }
             catch (FaultException<NotFoundException> ex)
             {
-                return RedirectToAction("Error", 
+                return RedirectToAction("Error",
                     Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
             }
-            return Redirect("/Home/Index");
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
         }
 
         public ActionResult Error(ErrorViewModel error)

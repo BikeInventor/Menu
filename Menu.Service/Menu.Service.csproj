@@ -97,6 +97,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Menu.Business\Menu.Business.csproj">
+      <Project>{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}</Project>
+      <Name>Menu.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu.Contracts\Menu.Contracts.csproj">
       <Project>{5f84fd31-1c16-43ca-bfe4-35ea508aa3b7}</Project>
       <Name>Menu.Contracts</Name>

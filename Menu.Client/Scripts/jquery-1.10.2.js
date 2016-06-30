@@ -3269,7 +3269,7 @@ jQuery.extend({
 		// Make the deferred a promise
 		promise.promise( deferred );
 
-		// Call given func if any
+		// Call given funcToExecute if any
 		if ( func ) {
 			func.call( deferred, deferred );
 		}

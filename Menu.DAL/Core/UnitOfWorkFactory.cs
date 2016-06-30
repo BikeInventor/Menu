@@ -15,7 +15,7 @@ namespace Menu.DAL.Core
                 .LifestyleSingleton());
 
             container.Register(Classes.FromThisAssembly()
-                .BasedOn(typeof(IRepository<>))
+                .BasedOn(typeof(IRepository<,>))
                 .WithServiceAllInterfaces());
 
             container.Register(Component.For<IUnitOfWork>()

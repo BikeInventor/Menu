@@ -9,5 +9,6 @@ namespace Menu.DAL.Repositories
         public MenuItemRepository(MenuDbContext dbContext) : base(dbContext)
         {
         }
+
     }
 }

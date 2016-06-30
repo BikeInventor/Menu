@@ -8,77 +8,42 @@ using Menu.Data;
 using Menu.DAL.Core;
 using Menu.DAL.Core.Interfaces;
 using Menu.Service.Mappings;
+using Menu.Business.Managers;
 
 namespace Menu.Service
 {
     public class MenuService : IMenuService
     {
-        private IUnitOfWork _unitOfWork;
+        private MenuManager _menuManager = new MenuManager();
 
         public MenuService()
         {
-            _unitOfWork = UnitOfWorkFactory.Create();
             AutoMapperConfiguration.Configure();
         }
 
         public int AddMenuItem(MenuItemData menuItem)
         {
-            var newItem = Mapper.Map<MenuItemData, MenuItem>(menuItem);
-            
-            _unitOfWork.MenuItems.Add(newItem);
-            _unitOfWork.Save();
-
-            return newItem.Id;
+            return _menuManager.AddMenuItem(menuItem);
         }
 
         public void DeleteMenuItem(int id)
         {
-            var itemToDelete = _unitOfWork.MenuItems.Get(id);
-
-            if (itemToDelete != null)
-            {
-                _unitOfWork.MenuItems.Delete(itemToDelete);
-                _unitOfWork.Save();
-            }
-            else
-            {
-                var ex = new NotFoundException
-                {
-                    Title = "Ошибка при попытке удаления объекта",
-                    Message = "Объект не найден."
-                };
-                throw new FaultException<NotFoundException>(ex, ex.Message);
-            }
+            _menuManager.DeleteMenuItem(id);
         }
 
         public MenuItemData GetMenuItem(int id)
         {
-            var menuItem = _unitOfWork.MenuItems.Get(id);
-            if (menuItem != null)
-            {
-                return Mapper.Map<MenuItem, MenuItemData>(menuItem);
-            }
-            return null;
+            return _menuManager.GetMenuItem(id);
         }
 
         public IEnumerable<MenuItemData> GetMenuItems()
         {
-            return Mapper.Map<IEnumerable<MenuItem>, 
-                IEnumerable<MenuItemData>>(_unitOfWork.MenuItems.GetAll());
+            return _menuManager.GetMenuItems();
         }
 
         public void UpdateMenuItem(MenuItemData updatedItem)
         {
-            var creationDateTime = updatedItem.Created;
-            var lastEditionDateTime = DateTime.Now;
-
-            var updItem = Mapper.Map<MenuItemData, MenuItem>(updatedItem);
-
-            updItem.Created = creationDateTime;
-            updItem.LastEdited = lastEditionDateTime;
-
-            _unitOfWork.MenuItems.Update(updItem);
-            _unitOfWork.Save();
+            _menuManager.UpdateMenuItem(updatedItem);
         }
     }
 }

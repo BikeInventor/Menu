@@ -17,3 +17,5 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Service\b
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Service\bin\Castle.Core.xml
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Service\bin\Castle.Windsor.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\AutoMapper.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Business.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Business.pdb
