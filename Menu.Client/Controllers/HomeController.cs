@@ -18,7 +18,8 @@ namespace Menu.Client.Controllers
 
         public ActionResult Index()
         {
-            var viewmodelItems = Mapper.Map<IEnumerable<MenuItemData>, IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
+            var viewmodelItems = Mapper.Map<IEnumerable<MenuItemData>, 
+                IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
 
             return View(viewmodelItems);
         }

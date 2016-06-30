@@ -13,6 +13,12 @@ namespace Menu.Contracts.DataContracts
         public int Id { get; set; }
 
         [DataMember]
+        public DateTime Created { get; set; }
+
+        [DataMember]
+        public DateTime LastEdited { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
 
         [DataMember]
@@ -20,5 +26,6 @@ namespace Menu.Contracts.DataContracts
         
         [DataMember]
         public decimal Price { get; set; }
+
     }
 }

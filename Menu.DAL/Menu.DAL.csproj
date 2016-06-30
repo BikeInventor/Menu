@@ -68,7 +68,6 @@
     <Compile Include="Core\RepositoryBase.cs" />
     <Compile Include="Core\UnitOfWorkFactory.cs" />
     <Compile Include="MenuDbContext.cs" />
-    <Compile Include="MenuDbInitializer.cs" />
     <Compile Include="Migrations\201606300839449_InitialCreate.cs" />
     <Compile Include="Migrations\201606300839449_InitialCreate.Designer.cs">
       <DependentUpon>201606300839449_InitialCreate.cs</DependentUpon>
