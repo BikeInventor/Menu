@@ -2,3 +2,4 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Data\bin\
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Data\bin\Debug\Menu.Data.pdb
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Data\obj\Debug\Menu.Data.dll
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Data\obj\Debug\Menu.Data.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Data\obj\Debug\Menu.Data.csprojResolveAssemblyReference.cache

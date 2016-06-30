@@ -4,38 +4,38 @@ using Menu.Data.Core;
 
 namespace Menu.DAL.Core
 {
-    public class RepositoryBase<T> where T : DomainObject
+    public class RepositoryBase<TEntity,TEntityId> where TEntity : DomainObject<TEntityId>
     {
         protected MenuDbContext dbContext;
-        protected DbSet<T> entityContext;
+        protected DbSet<TEntity> entityContext;
 
         protected RepositoryBase(MenuDbContext dbContext)
         {
             this.dbContext = dbContext;
-            entityContext = dbContext.Set<T>();
+            entityContext = dbContext.Set<TEntity>();
         }
 
-        public T Get(int id)
+        public TEntity Get(int id)
         {
             return entityContext.Find(id);
         }
         
-        public IEnumerable<T> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
             return entityContext;
         }
 
-        public void Add(T entity)
+        public void Add(TEntity entity)
         {
             entityContext.Add(entity);
         }
 
-        public void Update(T entity)
+        public void Update(TEntity entity)
         {
             dbContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Delete(T entity)
+        public void Delete(TEntity entity)
         {
             dbContext.Entry(entity).State = EntityState.Deleted;
         }
