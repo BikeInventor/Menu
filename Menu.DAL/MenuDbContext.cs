@@ -11,10 +11,6 @@ namespace Menu.DAL
 
         public DbSet<MenuItem> MenuItems { get; set; }
 
-        static MenuDbContext()
-        {
-            Database.SetInitializer<MenuDbContext>(new MenuDbInitializer());
-        }
     }
 
 }

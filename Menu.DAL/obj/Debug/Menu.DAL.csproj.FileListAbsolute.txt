@@ -14,3 +14,5 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.DAL\bin\D
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.DAL\bin\Debug\Castle.Core.xml
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.DAL\bin\Debug\Castle.Windsor.xml
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.DAL\obj\Debug\Menu.DAL.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\obj\Debug\Menu.DAL.Migrations.InitialCreate.resources
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\obj\Debug\Menu.DAL.csproj.GenerateResource.Cache
