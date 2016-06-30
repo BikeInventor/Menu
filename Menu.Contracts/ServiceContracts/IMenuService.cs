@@ -20,6 +20,7 @@ namespace Menu.Contracts.ServiceContracts
         void UpdateMenuItem(MenuItemData oldItem);
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         void DeleteMenuItem(int id);
 
     }

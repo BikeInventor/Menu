@@ -11,6 +11,7 @@ namespace Menu.Client.Mappings
         protected override void Configure()
         {
             Mapper.CreateMap<MenuItemData, ItemViewModel>();
+            Mapper.CreateMap<NotFoundException, ErrorViewModel>();
         }
     }
 }

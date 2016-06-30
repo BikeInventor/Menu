@@ -1,0 +1,23 @@
+﻿@model Menu.Client.Models.ErrorViewModel
+
+@{
+    ViewBag.Title = "Ошибка!";
+}
+
+<h2>Ошибка сервера в приложении</h2>
+
+    <br/>
+    <div class="form-horizontal">
+        <h3><b>@Html.DisplayTextFor(m => m.Title)</b></h3>
+        <br/>
+        <h4><b>Описание:</b> @Html.DisplayTextFor(m => m.Message)</h4>
+        <br/>
+    </div>
+
+<div>
+    @Html.ActionLink("Вернуться на главную", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

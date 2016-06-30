@@ -1,4 +1,6 @@
-﻿namespace Menu.Client.Models
+﻿using System;
+
+namespace Menu.Client.Models
 {
     public class ItemViewModel
     {
@@ -9,5 +11,15 @@
         public string Amount { get; set; }
 
         public decimal Price { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime LastEdited { get; set; }
+
+        public ItemViewModel()
+        {
+            this.Created = DateTime.Now;
+            this.LastEdited = DateTime.Now;
+        }
     }
 }

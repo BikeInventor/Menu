@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ServiceModel;
 using System.Web.Mvc;
 using AutoMapper;
 using Menu.Client.Models;
@@ -54,9 +55,21 @@ namespace Menu.Client.Controllers
 
         public ActionResult Delete(int id)
         {
-            _menuClient.DeleteMenuItem(id);
+            try
+            {
+                _menuClient.DeleteMenuItem(id);
+            }
+            catch (FaultException<NotFoundException> ex)
+            {
+                return RedirectToAction("Error", 
+                    Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
+            }
             return Redirect("/Home/Index");
+        }
 
+        public ActionResult Error(ErrorViewModel error)
+        {
+            return View(error);
         }
     }
 }

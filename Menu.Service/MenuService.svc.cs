@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ServiceModel;
 using AutoMapper;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
@@ -24,7 +24,7 @@ namespace Menu.Service
         public int AddMenuItem(MenuItemData menuItem)
         {
             var newItem = Mapper.Map<MenuItemData, MenuItem>(menuItem);
-
+            
             _unitOfWork.MenuItems.Add(newItem);
             _unitOfWork.Save();
 
@@ -42,11 +42,15 @@ namespace Menu.Service
             }
             else
             {
-                throw new InvalidOperationException();
+                var ex = new NotFoundException
+                {
+                    Title = "Ошибка при попытке удаления объекта",
+                    Message = "Объект не найден."
+                };
+                throw new FaultException<NotFoundException>(ex, ex.Message);
             }
         }
 
-        //TODO: FaultContract'ы
         public MenuItemData GetMenuItem(int id)
         {
             var menuItem = _unitOfWork.MenuItems.Get(id);
