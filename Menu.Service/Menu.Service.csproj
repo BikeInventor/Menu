@@ -76,6 +76,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceBase.cs" />
     <Content Include="App_Code\Initializer.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\DomainToDtoMappingProfile.cs" />
@@ -121,10 +122,6 @@
     <ProjectReference Include="..\Menu.IoCLoader\Menu.IoCLoader.csproj">
       <Project>{e6ab9555-ef66-406f-ac38-77395755c928}</Project>
       <Name>Menu.IoCLoader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Menu.ServiceImplementation\Menu.ServiceImplementation.csproj">
-      <Project>{8364F0F2-1BE3-431E-AB8C-5A29BF69600F}</Project>
-      <Name>Menu.ServiceImplementation</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

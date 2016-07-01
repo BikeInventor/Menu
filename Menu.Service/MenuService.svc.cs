@@ -1,42 +1,43 @@
 ﻿using System.Collections.Generic;
+using Menu.Business.ManagersInterfaces;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
 using Menu.Common;
 
 namespace Menu.Service
 {
-    public class MenuService : IMenuService
+    public class MenuService : ServiceBase, IMenuService
     {
-        private readonly IMenuService _mnuSvcImplementation;
+        private readonly IMenuManager _menuManager;
 
         public MenuService()
         {
-            _mnuSvcImplementation = Dependencies.Container.Resolve<IMenuService>();
+            _menuManager = Dependencies.Container.Resolve<IMenuManager>();
         }
 
         public int AddMenuItem(MenuItemData menuItem)
         {
-           return _mnuSvcImplementation.AddMenuItem(menuItem);
+           return ExecuteWithExceptionHandling(() => _menuManager.AddMenuItem(menuItem));
         }
 
         public void DeleteMenuItem(int id)
         {
-            _mnuSvcImplementation.DeleteMenuItem(id);
+            ExecuteWithExceptionHandling(() => _menuManager.DeleteMenuItem(id));
         }
 
         public MenuItemData GetMenuItem(int id)
         {
-            return _mnuSvcImplementation.GetMenuItem(id);
+            return ExecuteWithExceptionHandling(() => _menuManager.GetMenuItem(id));
         }
 
         public IEnumerable<MenuItemData> GetMenuItems()
         {
-            return _mnuSvcImplementation.GetMenuItems();
+            return ExecuteWithExceptionHandling(() => _menuManager.GetMenuItems());
         }
 
         public void UpdateMenuItem(MenuItemData updatedItem)
         {
-            _mnuSvcImplementation.UpdateMenuItem(updatedItem);
+            ExecuteWithExceptionHandling(() => _menuManager.UpdateMenuItem(updatedItem));
         }
     }
 }

@@ -2,11 +2,9 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Menu.Business.Core;
-using Menu.Contracts.ServiceContracts;
 using Menu.DAL;
 using Menu.DAL.Core;
 using Menu.DAL.Core.Interfaces;
-using Menu.ServiceImplementation;
 
 namespace Menu.IoCLoader
 {
@@ -14,9 +12,6 @@ namespace Menu.IoCLoader
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IMenuService>()
-                .ImplementedBy<MenuServiceImplementation>()
-                .LifestyleSingleton());
 
             container.Register(Classes.FromAssemblyInThisApplication()
                .BasedOn(typeof(IManager<>))

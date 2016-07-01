@@ -1,4 +1,3 @@
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Menu.Common.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Menu.Common.pdb
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Core.dll

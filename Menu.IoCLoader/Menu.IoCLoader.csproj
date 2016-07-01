@@ -78,10 +78,6 @@
       <Project>{83E47880-64FA-47AD-89E1-99AB8241F2C2}</Project>
       <Name>Menu.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Menu.ServiceImplementation\Menu.ServiceImplementation.csproj">
-      <Project>{8364F0F2-1BE3-431E-AB8C-5A29BF69600F}</Project>
-      <Name>Menu.ServiceImplementation</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

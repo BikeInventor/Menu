@@ -23,5 +23,3 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\b
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Common.pdb
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.pdb
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.ServiceImplementation.dll
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.ServiceImplementation.pdb
