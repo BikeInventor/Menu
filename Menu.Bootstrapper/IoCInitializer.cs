@@ -9,29 +9,13 @@ namespace Menu.Bootstrapper
 {
     public class IoCInitializer
     {
-        private static WindsorContainer _container;
-
         public static WindsorContainer GetInitializedContainer()
         {
-            _container = new WindsorContainer();
+            var container = new WindsorContainer();
 
-            _container.Register(Classes.FromAssemblyInThisApplication()
-                .BasedOn(typeof(IManager<>))
-                .WithServiceAllInterfaces());
+            container.Install(new ServiceDependenciesInstaller());
 
-            _container.Register(Component.For<IUnitOfWork>()
-                .ImplementedBy<UnitOfWork>()
-                .LifestyleSingleton());
-
-            _container.Register(Classes.FromAssemblyInThisApplication()
-                .BasedOn(typeof(IRepository<,>))
-                .WithServiceAllInterfaces());
-
-            _container.Register(Component.For<MenuDbContext>()
-                .ImplementedBy<MenuDbContext>()
-                .LifestyleSingleton());
-
-            return _container;
+            return container;
         }
     }
 }
