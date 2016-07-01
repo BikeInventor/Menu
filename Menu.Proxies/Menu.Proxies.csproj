@@ -50,10 +50,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryClient.cs" />
+    <Compile Include="Core\IProxyFactory.cs" />
     <Compile Include="MenuClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\ProxyFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Menu.Common\Menu.Common.csproj">
+      <Project>{4354FC59-38FA-4D93-863E-8B3E397C6183}</Project>
+      <Name>Menu.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu.Contracts\Menu.Contracts.csproj">
       <Project>{5f84fd31-1c16-43ca-bfe4-35ea508aa3b7}</Project>
       <Name>Menu.Contracts</Name>

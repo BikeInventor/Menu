@@ -23,3 +23,16 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\b
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Common.pdb
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Proxies.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Proxies.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.Mvc.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.Razor.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.Razor.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.Mvc.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.Razor.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\System.Web.WebPages.Deployment.xml

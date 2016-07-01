@@ -5,6 +5,7 @@ using AutoMapper;
 using Menu.Client.Models;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
+using Menu.Proxies.Core;
 
 namespace Menu.Client.Controllers
 {
@@ -12,9 +13,9 @@ namespace Menu.Client.Controllers
     {
         private readonly IMenuService _menuClient;
 
-        public HomeController(IMenuService menuClient)
+        public HomeController(IProxyFactory proxyFactory)
         {
-            _menuClient = menuClient;
+            _menuClient = proxyFactory.GetProxy<IMenuService>();
         }
 
         public ActionResult Index()

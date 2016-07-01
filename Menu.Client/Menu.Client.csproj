@@ -270,6 +270,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Menu.Common\Menu.Common.csproj">
+      <Project>{4354FC59-38FA-4D93-863E-8B3E397C6183}</Project>
+      <Name>Menu.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu.Contracts\Menu.Contracts.csproj">
       <Project>{5f84fd31-1c16-43ca-bfe4-35ea508aa3b7}</Project>
       <Name>Menu.Contracts</Name>

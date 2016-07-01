@@ -2,9 +2,11 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using Menu.Business.Core;
+using Menu.Contracts.ServiceContracts;
 using Menu.DAL;
 using Menu.DAL.Core;
 using Menu.DAL.Core.Interfaces;
+using Menu.Proxies;
 
 namespace Menu.IoCLoader
 {

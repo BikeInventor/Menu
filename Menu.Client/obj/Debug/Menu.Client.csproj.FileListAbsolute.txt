@@ -75,3 +75,5 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bi
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Windsor.dll
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Core.xml
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Windsor.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Common.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Common.pdb

@@ -6,6 +6,11 @@ namespace Menu.Common
     {
         public static WindsorContainer Container { get; private set; }
 
+        static Dependencies()
+        {
+            Container = new WindsorContainer();
+        }
+
         public static void InitContainer(WindsorContainer container)
         {
             Container = container;

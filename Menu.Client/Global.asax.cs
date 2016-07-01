@@ -4,6 +4,7 @@ using System.Web.Routing;
 using Castle.Windsor;
 using Menu.Client.Mappings;
 using Menu.Client.Util;
+using Menu.Common;
 
 namespace Menu.Client
 {
@@ -13,6 +14,8 @@ namespace Menu.Client
         {
             var container = new WindsorContainer();
             container.Install(new ApplicationCastleInstaller());
+
+            Dependencies.InitContainer(container);
 
             var castleControllerFactory = new CastleControllerFactory(container);
 

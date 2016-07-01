@@ -6,3 +6,4 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bi
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\bin\Debug\Castle.Windsor.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Common\obj\Debug\Menu.Common.csprojResolveAssemblyReference.cache
