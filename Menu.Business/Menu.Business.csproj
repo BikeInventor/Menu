@@ -55,6 +55,7 @@
     <Compile Include="Core\IManager.cs" />
     <Compile Include="Core\ManagerBase.cs" />
     <Compile Include="Core\ManagerFactory.cs" />
+    <Compile Include="Exceptions\ObjectNotFoundException.cs" />
     <Compile Include="ManagersInterfaces\IMenuManager.cs" />
     <Compile Include="Managers\MenuManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
