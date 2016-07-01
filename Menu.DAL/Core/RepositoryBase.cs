@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using Menu.Data.Core;
 
@@ -36,7 +37,7 @@ namespace Menu.DAL.Core
 
         public void Update(TEntity entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
+            entityContext.AddOrUpdate(entity);
         }
 
         public void Delete(TEntity entity)
