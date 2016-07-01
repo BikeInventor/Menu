@@ -11,8 +11,7 @@ namespace Menu.Data
 
         public MenuItem()
         {
-            this.Created = DateTime.Now;
-            this.LastEdited = DateTime.Now;
+
         }
     }
 }

@@ -16,10 +16,5 @@ namespace Menu.Client.Models
 
         public DateTime LastEdited { get; set; }
 
-        public ItemViewModel()
-        {
-            this.Created = DateTime.Now;
-            this.LastEdited = DateTime.Now;
-        }
     }
 }

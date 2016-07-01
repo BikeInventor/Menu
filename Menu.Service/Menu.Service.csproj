@@ -98,10 +98,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Menu.Bootstrapper\Menu.Bootstrapper.csproj">
-      <Project>{E1457C33-3C71-4D6E-82F5-27FCFBFA1004}</Project>
-      <Name>Menu.Bootstrapper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Menu.Business\Menu.Business.csproj">
       <Project>{ED47E8E1-9548-44F2-A5DE-4DAF2EC995E2}</Project>
       <Name>Menu.Business</Name>
@@ -121,6 +117,10 @@
     <ProjectReference Include="..\Menu.Data\Menu.Data.csproj">
       <Project>{3eef2052-a956-41e1-b935-bf72278e690a}</Project>
       <Name>Menu.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Menu.IoCLoader\Menu.IoCLoader.csproj">
+      <Project>{e6ab9555-ef66-406f-ac38-77395755c928}</Project>
+      <Name>Menu.IoCLoader</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

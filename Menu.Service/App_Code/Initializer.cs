@@ -1,8 +1,8 @@
 ﻿using Menu.Common;
-using Menu.Bootstrapper;
+using Menu.IoCLoader.App_Code;
 using Menu.Service.Mappings;
 
-namespace Menu.Service.App_Code
+namespace Menu.Service
 {
     public class Initializer
     {

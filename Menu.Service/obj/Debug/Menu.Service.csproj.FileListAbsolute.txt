@@ -19,7 +19,7 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Service\b
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\AutoMapper.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Business.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Business.pdb
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Bootstrapper.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Common.dll
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Bootstrapper.pdb
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.Common.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Service\bin\Menu.IoCLoader.pdb

@@ -24,7 +24,9 @@ namespace Menu.Business.Managers
             return ExecuteWithFaultHandling(() =>
             {
                 var newItem = Mapper.Map<MenuItemData, MenuItem>(menuItem);
-
+                newItem.Created = DateTime.Now;
+                newItem.LastEdited = DateTime.Now;
+                
                 _unitOfWork.MenuItems.Add(newItem);
                 _unitOfWork.Save();
 
@@ -64,7 +66,9 @@ namespace Menu.Business.Managers
         {
             ExecuteWithFaultHandling(() =>
             {
-                if (!_unitOfWork.MenuItems.IsExist(updatedItem.Id))
+                var itemToUpdate = _unitOfWork.MenuItems.Get(updatedItem.Id);
+
+                if (itemToUpdate == null)
                 {
                     var ex = new NotFoundException
                     {
@@ -74,15 +78,10 @@ namespace Menu.Business.Managers
                     throw new FaultException<NotFoundException>(ex, ex.Message);
                 }
 
-                var creationDateTime = updatedItem.Created;
-                var lastEditionDateTime = DateTime.Now;
+                updatedItem.Created = itemToUpdate.Created;
+                updatedItem.LastEdited = DateTime.Now;
 
-                var updItem = Mapper.Map<MenuItemData, MenuItem>(updatedItem);
-
-                updItem.Created = creationDateTime;
-                updItem.LastEdited = lastEditionDateTime;
-
-                _unitOfWork.MenuItems.Update(updItem);
+                _unitOfWork.MenuItems.Update(Mapper.Map<MenuItemData, MenuItem>(updatedItem));
                 _unitOfWork.Save();
             });
         }
