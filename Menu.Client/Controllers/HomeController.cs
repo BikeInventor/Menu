@@ -12,10 +12,13 @@ namespace Menu.Client.Controllers
     public class HomeController : Controller
     {
         private readonly IMenuService _menuClient;
+        private readonly ICategoryService _categoryClient;
+
 
         public HomeController(IProxyFactory proxyFactory)
         {
             _menuClient = proxyFactory.GetProxy<IMenuService>();
+            _categoryClient = proxyFactory.GetProxy<ICategoryService>();
         }
 
         public ActionResult Index()
@@ -115,6 +118,29 @@ namespace Menu.Client.Controllers
             {
                 _menuClient.DeleteMenuItem(id);
                 return Redirect("/Home/Index");
+            }
+            catch (FaultException<NotFoundException> ex)
+            {
+                return RedirectToAction("Error",
+                    Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
+        }
+
+        public ActionResult Category(long id)
+        {
+            try
+            {
+                var category = _categoryClient.GetCategory(id);
+                var categoryViewModel = Mapper.Map<CategoryData, CategoryViewModel>(category);
+                return View(categoryViewModel);
             }
             catch (FaultException<NotFoundException> ex)
             {

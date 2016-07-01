@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
 namespace Menu.Client.Models
 {
-    public class ItemViewModel
+    public class CategoryViewModel
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public string Name { get; set; }
-
-        public string Amount { get; set; }
-
-        public decimal Price { get; set; }
 
         public DateTime Created { get; set; }
 
         public DateTime LastEdited { get; set; }
 
-        public List<CategoryViewModel> Categories { get; set; }
-
+        public List<ItemViewModel> MenuItems { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace Menu.DAL
         { }
 
         public DbSet<MenuItem> MenuItems { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
