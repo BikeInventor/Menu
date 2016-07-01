@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Menu.Data.Core;
 
 namespace Menu.Data
@@ -9,9 +9,12 @@ namespace Menu.Data
         public string Amount { get; set; }
         public decimal Price { get; set; }
 
+        public virtual ICollection<Category> Categories { get; set; }
+
         public MenuItem()
         {
-
+            Categories = new List<Category>();
         }
+
     }
 }

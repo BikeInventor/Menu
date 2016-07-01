@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201606300839449_InitialCreate.Designer.cs">
       <DependentUpon>201606300839449_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607011614475_Categories added.cs" />
+    <Compile Include="Migrations\201607011614475_Categories added.Designer.cs">
+      <DependentUpon>201607011614475_Categories added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MenuItemRepository.cs" />
@@ -96,6 +100,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201606300839449_InitialCreate.resx">
       <DependentUpon>201606300839449_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607011614475_Categories added.resx">
+      <DependentUpon>201607011614475_Categories added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

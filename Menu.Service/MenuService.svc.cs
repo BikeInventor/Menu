@@ -1,14 +1,7 @@
 ﻿using System.Collections.Generic;
-using Menu.Business.Core;
-using Menu.Business.Managers;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
-using Menu.Service.Mappings;
-using Menu.Business.ManagersInterfaces;
 using Menu.Common;
-using Menu.DAL;
-using Menu.DAL.Core;
-using Menu.ServiceImplementation;
 
 namespace Menu.Service
 {

@@ -18,3 +18,4 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\obj\D
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\obj\Debug\Menu.DAL.csproj.GenerateResource.Cache
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\bin\Debug\Menu.Common.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\bin\Debug\Menu.Common.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.DAL\obj\Debug\Menu.DAL.Migrations.Categoriesadded.resources
