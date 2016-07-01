@@ -24,6 +24,11 @@ namespace Menu.DAL.Core
         {
             return entityContext.Find(id);
         }
+
+        public TEntity Get(Func<TEntity, bool> predicate)
+        {
+            return entityContext.Where(predicate).FirstOrDefault();
+        }
         
         public IEnumerable<TEntity> GetAll()
         {
@@ -43,11 +48,6 @@ namespace Menu.DAL.Core
         public void Delete(TEntity entity)
         {
             dbContext.Entry(entity).State = EntityState.Deleted;
-        }
-
-        public bool IsExist(TEntityId id)
-        {
-            return entityContext.Any(entity => entity.Id.ToString().Equals(id.ToString()));
         }
 
         public void Dispose()

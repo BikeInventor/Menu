@@ -10,6 +10,7 @@ namespace Menu.DAL.Core
         private readonly MenuDbContext _db;
 
         public IMenuItemRepository MenuItems { get; set; }
+        public ICategoryRepository Categories { get; set; }
 
         public UnitOfWork(MenuDbContext dbContext)
         {
