@@ -10,32 +10,32 @@ using Menu.DAL.Core.Interfaces;
 
 namespace Menu.Business.Managers
 {
-    public class MenuManager : ManagerBase, IMenuManager
+    public class CategoryManager : ManagerBase, ICategoryManager
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public MenuManager(IUnitOfWork unitOfWork)
+        public CategoryManager(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public int AddMenuItem(MenuItemData menuItem)
+        public long AddCategory(CategoryData category)
         {
-            var newItem = Mapper.Map<MenuItemData, MenuItem>(menuItem);
-            newItem.Created = DateTime.Now;
-            newItem.LastEdited = DateTime.Now;
+            var newCategory = Mapper.Map<CategoryData, Category>(category);
+            newCategory.Created = DateTime.Now;
+            newCategory.LastEdited = DateTime.Now;
 
-            _unitOfWork.MenuItems.Add(newItem);
+            _unitOfWork.Categories.Add(newCategory);
             _unitOfWork.Save();
 
-            return newItem.Id;
+            return newCategory.Id;
         }
 
-        public MenuItemData GetMenuItem(int id)
+        public CategoryData GetCategory(long id)
         {
-            var menuItem = _unitOfWork.MenuItems.Get(id);
+            var category = _unitOfWork.Categories.Get(id);
 
-            if (menuItem == null)
+            if (category == null)
             {
                 throw new ObjectNotFoundException()
                 {
@@ -45,20 +45,20 @@ namespace Menu.Business.Managers
 
             }
 
-            return Mapper.Map<MenuItem, MenuItemData>(menuItem);
+            return Mapper.Map<Category, CategoryData>(category);
         }
 
-        public IEnumerable<MenuItemData> GetMenuItems()
+        public IEnumerable<CategoryData> GetCategories()
         {
-            return Mapper.Map<IEnumerable<MenuItem>,
-                    IEnumerable<MenuItemData>>(_unitOfWork.MenuItems.GetAll());
+            return Mapper.Map<IEnumerable<Category>,
+                    IEnumerable<CategoryData>>(_unitOfWork.Categories.GetAll());
         }
 
-        public void UpdateMenuItem(MenuItemData updatedItem)
+        public void UpdateCategory(CategoryData updatedCategory)
         {
-            var itemToUpdate = _unitOfWork.MenuItems.Get(updatedItem.Id);
+            var categoryToUpdate = _unitOfWork.Categories.Get(updatedCategory.Id);
 
-            if (itemToUpdate == null)
+            if (categoryToUpdate == null)
             {
                 throw new ObjectNotFoundException
                 {
@@ -67,20 +67,20 @@ namespace Menu.Business.Managers
                 };
             }
 
-            updatedItem.Created = itemToUpdate.Created;
-            updatedItem.LastEdited = DateTime.Now;
+            updatedCategory.Created = categoryToUpdate.Created;
+            updatedCategory.LastEdited = DateTime.Now;
 
-            _unitOfWork.MenuItems.Update(Mapper.Map<MenuItemData, MenuItem>(updatedItem));
+            _unitOfWork.Categories.Update(Mapper.Map<CategoryData, Category>(updatedCategory));
             _unitOfWork.Save();
         }
 
-        public void DeleteMenuItem(int id)
+        public void DeleteCategory(long id)
         {
-            var itemToDelete = _unitOfWork.MenuItems.Get(id);
+            var categoryToDelete = _unitOfWork.Categories.Get(id);
 
-            if (itemToDelete != null)
+            if (categoryToDelete != null)
             {
-                _unitOfWork.MenuItems.Delete(itemToDelete);
+                _unitOfWork.Categories.Delete(categoryToDelete);
                 _unitOfWork.Save();
             }
             else

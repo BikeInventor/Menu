@@ -11,6 +11,7 @@ namespace Menu.Service.Mappings
         protected override void Configure()
         {
             Mapper.CreateMap<MenuItem, MenuItemData> ();
+            Mapper.CreateMap<Category, CategoryData> ();
         }
     }
 }

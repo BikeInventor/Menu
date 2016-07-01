@@ -12,7 +12,6 @@ namespace Menu.IoCLoader
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-
             container.Register(Classes.FromAssemblyInThisApplication()
                .BasedOn(typeof(IManager<>))
                .WithServiceAllInterfaces());
