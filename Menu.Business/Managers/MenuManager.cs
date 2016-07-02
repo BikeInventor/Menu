@@ -71,8 +71,8 @@ namespace Menu.Business.Managers
             itemToUpdate.Name = updatedItem.Name;
             itemToUpdate.Amount = updatedItem.Amount;
             itemToUpdate.Price = updatedItem.Price;
-            itemToUpdate.Categories.Clear();
-            
+
+            itemToUpdate.Categories.Clear();     
             updatedItem.Categories.ToList()
                 .ForEach(c =>
                 {

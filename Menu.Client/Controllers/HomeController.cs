@@ -16,7 +16,6 @@ namespace Menu.Client.Controllers
         private readonly IMenuService _menuClient;
         private readonly ICategoryService _categoryClient;
 
-
         public HomeController(IProxyFactory proxyFactory)
         {
             _menuClient = proxyFactory.GetProxy<IMenuService>();
@@ -104,6 +103,8 @@ namespace Menu.Client.Controllers
             try
             {
                 var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                editItem.Categories = _menuClient.GetMenuItem(itemViewModel.Id).Categories;
+
                 _menuClient.UpdateMenuItem(editItem);
                 return Redirect("/Home/MenuItems");
             }
