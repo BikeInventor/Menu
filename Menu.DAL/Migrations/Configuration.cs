@@ -6,7 +6,7 @@ using System.Data.Entity.Migrations;
 namespace Menu.DAL.Migrations
 {
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Menu.DAL.MenuDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MenuDbContext>
     {
         public Configuration()
         {

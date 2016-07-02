@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
 using System.Web.Mvc;
 using AutoMapper;
@@ -25,12 +27,12 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var viewmodelItems = Mapper.Map<IEnumerable<MenuItemData>,
-               IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
+                var categories = Mapper.Map<IEnumerable<CategoryData>,
+                IEnumerable<CategoryViewModel>>(_categoryClient.GetCategories());
 
-                return View(viewmodelItems);
+                return View(categories);
             }
-            catch (FaultException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", new ErrorViewModel()
                 {
@@ -52,9 +54,9 @@ namespace Menu.Client.Controllers
             {
                 var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
                 _menuClient.AddMenuItem(menuItem);
-                return Redirect("/Home/Index");
+                return Redirect("/Home/MenuItems");
             }
-            catch (FaultException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", new ErrorViewModel()
                 {
@@ -69,15 +71,23 @@ namespace Menu.Client.Controllers
             try
             {
                 var editItem = _menuClient.GetMenuItem(id);
-                var editItemViewModel = Mapper.Map<MenuItemData, ItemViewModel>(editItem);
-                return View(editItemViewModel);
+                var allCategories = _categoryClient.GetCategories();
+
+                var notCategoriesOfItem = allCategories
+                    .Where(cat => !editItem.Categories
+                    .Select(item => item.Id).Contains(cat.Id));
+
+                ViewBag.CategoriesWithoutItem = Mapper.Map<IEnumerable<CategoryData>,
+                    IEnumerable<CategoryViewModel>>(notCategoriesOfItem);
+
+                return View(Mapper.Map<MenuItemData, ItemViewModel>(editItem));
             }
             catch (FaultException<NotFoundException> ex)
             {
                 return RedirectToAction("Error",
                     Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
             }
-            catch (FaultException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", new ErrorViewModel()
                 {
@@ -95,14 +105,14 @@ namespace Menu.Client.Controllers
             {
                 var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
                 _menuClient.UpdateMenuItem(editItem);
-                return Redirect("/Home/Index");
+                return Redirect("/Home/MenuItems");
             }
             catch (FaultException<NotFoundException> ex)
             {
                 return RedirectToAction("Error",
                     Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
             }
-            catch (FaultException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", new ErrorViewModel()
                 {
@@ -117,37 +127,14 @@ namespace Menu.Client.Controllers
             try
             {
                 _menuClient.DeleteMenuItem(id);
-                return Redirect("/Home/Index");
+                return Redirect(Request.UrlReferrer.ToString());
             }
             catch (FaultException<NotFoundException> ex)
             {
                 return RedirectToAction("Error",
                     Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
             }
-            catch (FaultException ex)
-            {
-                return RedirectToAction("Error", new ErrorViewModel()
-                {
-                    Title = "Неизвестная ошибка",
-                    Message = ex.Message
-                });
-            }
-        }
-
-        public ActionResult Category(long id)
-        {
-            try
-            {
-                var category = _categoryClient.GetCategory(id);
-                var categoryViewModel = Mapper.Map<CategoryData, CategoryViewModel>(category);
-                return View(categoryViewModel);
-            }
-            catch (FaultException<NotFoundException> ex)
-            {
-                return RedirectToAction("Error",
-                    Mapper.Map<NotFoundException, ErrorViewModel>(ex.Detail));
-            }
-            catch (FaultException ex)
+            catch (Exception ex)
             {
                 return RedirectToAction("Error", new ErrorViewModel()
                 {
@@ -160,6 +147,49 @@ namespace Menu.Client.Controllers
         public ActionResult Error(ErrorViewModel error)
         {
             return View(error);
+        }
+
+        public ActionResult MenuItems()
+        {
+            try
+            {
+                var menuItems = Mapper.Map<IEnumerable<MenuItemData>,
+                IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
+
+                return View(menuItems);
+            }
+            catch (FaultException ex)
+            {
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Неизвестная ошибка",
+                    Message = ex.Message
+                });
+            }
+        }
+
+        public ActionResult IncludeCategory(int id, long catId)
+        {
+            var category = _categoryClient.GetCategory(catId);
+            var menuItem = _menuClient.GetMenuItem(id);
+
+            menuItem.Categories.Add(category);
+
+            _menuClient.UpdateMenuItem(menuItem);
+
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+
+        public ActionResult ExcludeCategory(int id, long catId)
+        {
+            var menuItem = _menuClient.GetMenuItem(id);
+
+            menuItem.Categories = menuItem.Categories
+                .Where(cat => cat.Id != catId).ToList();
+
+            _menuClient.UpdateMenuItem(menuItem);
+
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

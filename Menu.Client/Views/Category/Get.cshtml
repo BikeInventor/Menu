@@ -1,0 +1,62 @@
+﻿@model Menu.Client.Models.CategoryViewModel
+
+@{
+    ViewBag.Title = "Информация о категории";
+}
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><h3>Категория: @Model.Name</h3></h3>
+    </div>
+    <div class="panel-body">
+        <h5>Количество позиций в категории: @Model.MenuItems.Count()</h5>
+        <br/>
+
+        <h4>Позиции меню, принадлижащие к данной категории:</h4>
+
+        <dl class="dl-horizontal">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Наименование
+                    </th>
+                    <th>
+                        Количество
+                    </th>
+                    <th>
+                        Стоимость
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.MenuItems)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price) руб.
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", "Home", new { id = item.Id }, new { @class = "btn btn-primary glyphicon glyphicon-edit" }) |
+                            @Html.ActionLink(" ", "Delete", "Home", new { id = item.Id }, new { @class = "btn btn-danger glyphicon glyphicon-remove" })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </dl>
+    </div>
+    <p>
+        &nbsp;&nbsp; @Html.ActionLink("Вернуться на главную", "Index", "Home")
+    </p>
+    </div>
+</div>
+
+   

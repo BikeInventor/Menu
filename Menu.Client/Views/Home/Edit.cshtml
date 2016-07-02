@@ -1,66 +1,127 @@
-﻿@model Menu.Client.Models.ItemViewModel
+﻿@using Menu.Client.Models
+@model Menu.Client.Models.ItemViewModel
 
 @{
     ViewBag.Title = "Редактирование позиции";
 }
 
-<h2>Редактирование позиции</h2>
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            <h3>Редактирование позиции</h3>
+</h3>
+    </div>
+    <div class="panel-body">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-group">
+                    @Html.Label("Наименование", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Количество", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Стоимость", htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Price, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.Price, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Категории, к которым относится данная позиция:", htmlAttributes: new {@style = "margin-left: 100px" })
+                </div>
+                    <div class="form-group">
+                        <ul style="padding-left: 100px; list-style-type: none;">
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li>
+                                    <table>
+                                        <tr>
+                                            <td style="min-width: 100px">
+                                                @item.Name
+                                            </td>
+                                            <td  style="min-width: 100px">
+                                                @Html.ActionLink("[Убрать позицию из категории]", "ExcludeCategory", new {id = Model.Id, catId = item.Id})
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                <br/>
+
+                <div class="form-group">
+                    @Html.Label("Другие категории:", htmlAttributes: new { @style = "margin-left: 100px" })
+                </div>
+                <div class="form-group">
+                    <ul style="padding-left: 100px; list-style-type: none;">
+                        @foreach (var item in (IEnumerable<CategoryViewModel>)ViewBag.CategoriesWithoutItem)
+                        {
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td style="min-width: 100px">
+                                            @item.Name
+                                        </td>
+                                        <td style="min-width: 100px">
+                                            @Html.ActionLink("[Добавить позицию в категорию]", "IncludeCategory", new { id = Model.Id, catId = item.Id })
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        }
+                    </ul>
+                </div>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
-
-        <div class="form-group">
-            @Html.Label("Наименование", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Количество", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.Label("Стоимость", htmlAttributes: new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Price, "", new {@class = "text-danger"})
-            </div>
-        </div>
 
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
 
-                Добавлено: @Model.Created <br/>
-                Изменено: @Model.LastEdited
 
-            </div>
-        </div>
+                <br/>
 
-        <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Сохранить" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+
+                        Добавлено: @Model.Created <br/>
+                        Изменено: @Model.LastEdited
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Сохранить" class="btn btn-primary" />
+                    </div>
                 </div>
             </div>
-        </div>
-}
-
-<div>
-    @Html.ActionLink("Вернуться к списку", "Index")
+        }
+ </div>
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
