@@ -65,11 +65,18 @@ namespace Menu.Client.Controllers
             }          
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
+            if (id == null)
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Ошибка доступа",
+                    Message = "Запрошенной страницы не существует"
+                });
+
             try
             {
-                var editItem = _menuClient.GetMenuItem(id);
+                var editItem = _menuClient.GetMenuItem(id.Value);
                 var allCategories = _categoryClient.GetCategories();
 
                 var notCategoriesOfItem = allCategories
@@ -123,11 +130,18 @@ namespace Menu.Client.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
+            if (id == null)
+                return RedirectToAction("Error", new ErrorViewModel()
+                {
+                    Title = "Ошибка доступа",
+                    Message = "Запрошенной страницы не существует"
+                });
+
             try
             {
-                _menuClient.DeleteMenuItem(id);
+                _menuClient.DeleteMenuItem(id.Value);
                 return Redirect(Request.UrlReferrer.ToString());
             }
             catch (FaultException<NotFoundException> ex)

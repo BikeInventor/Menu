@@ -20,11 +20,17 @@ namespace Menu.Client.Controllers
             _categoryClient = proxyFactory.GetProxy<ICategoryService>();
         }
 
-        public ActionResult Get(long id)
+        public ActionResult Get(long? id)
         {
+            if (id == null)
+                return RedirectToAction("Error","Home", new ErrorViewModel()
+                {
+                    Title = "Ошибка доступа",
+                    Message = "Запрошенной страницы не существует"
+                });
             try
             {
-                var category = _categoryClient.GetCategory(id);
+                var category = _categoryClient.GetCategory(id.Value);
                 var categoryViewModel = Mapper.Map<CategoryData, CategoryViewModel>(category);
                 return View(categoryViewModel);
             }
@@ -69,11 +75,17 @@ namespace Menu.Client.Controllers
             }
         }
 
-        public ActionResult Delete(long id)
+        public ActionResult Delete(long? id)
         {
+            if (id == null)
+                return RedirectToAction("Error", "Home", new ErrorViewModel()
+                {
+                    Title = "Ошибка доступа",
+                    Message = "Запрошенной страницы не существует"
+                });
             try
             {
-                _categoryClient.DeleteCategory(id);
+                _categoryClient.DeleteCategory(id.Value);
                 return Redirect("/Home/Index");
             }
             catch (FaultException<NotFoundException> ex)
