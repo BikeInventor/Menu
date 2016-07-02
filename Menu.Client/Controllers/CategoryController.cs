@@ -61,9 +61,13 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var category = Mapper.Map<CategoryViewModel, CategoryData>(categoryViewModel);
-                _categoryClient.AddCategory(category);
+                if (ModelState.IsValid)
+                {
+                    var category = Mapper.Map<CategoryViewModel, CategoryData>(categoryViewModel);
+                    _categoryClient.AddCategory(category);
+                }
                 return Redirect("/Home/Index");
+
             }
             catch (Exception ex)
             {

@@ -51,8 +51,11 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
-                _menuClient.AddMenuItem(menuItem);
+                if (ModelState.IsValid)
+                {
+                    var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                    _menuClient.AddMenuItem(menuItem);
+                }
                 return Redirect("/Home/MenuItems");
             }
             catch (Exception ex)
@@ -109,10 +112,13 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
-                editItem.Categories = _menuClient.GetMenuItem(itemViewModel.Id).Categories;
+                if (ModelState.IsValid)
+                {
+                    var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                    editItem.Categories = _menuClient.GetMenuItem(itemViewModel.Id).Categories;
 
-                _menuClient.UpdateMenuItem(editItem);
+                    _menuClient.UpdateMenuItem(editItem);
+                }
                 return Redirect("/Home/MenuItems");
             }
             catch (FaultException<NotFoundException> ex)
