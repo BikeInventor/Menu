@@ -51,6 +51,7 @@
     <Compile Include="DataContracts\CategoryData.cs" />
     <Compile Include="DataContracts\MenuItemData.cs" />
     <Compile Include="DataContracts\NotFoundException.cs" />
+    <Compile Include="IServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContracts\ICategoryService.cs" />
     <Compile Include="ServiceContracts\IMenuService.cs" />

@@ -21,7 +21,6 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bi
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.dll
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.Facebook.dll
@@ -56,7 +55,6 @@ C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bi
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.xml
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.Facebook.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Microsoft.Owin.Security.Cookies.xml
@@ -77,3 +75,15 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bi
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Windsor.xml
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Common.dll
 C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Common.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.IoCLoader.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Facilities.WcfIntegration.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Business.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.DAL.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Data.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.IoCLoader.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Castle.Facilities.WcfIntegration.xml
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Business.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.DAL.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Data.pdb
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Service.dll
+C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Client\bin\Menu.Service.pdb

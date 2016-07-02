@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Castle.Windsor;
 using Menu.Client.Mappings;
 using Menu.Client.Util;
 using Menu.Common;
+using Menu.IoCLoader;
 
 namespace Menu.Client
 {
@@ -12,13 +12,9 @@ namespace Menu.Client
     {
         protected void Application_Start()
         {
-            var container = new WindsorContainer();
-            container.Install(new ApplicationCastleInstaller());
+            Dependencies.InitContainer(IoCInitializer.GetContainer(ApplicationType.Client));
 
-            Dependencies.InitContainer(container);
-
-            var castleControllerFactory = new CastleControllerFactory(container);
-
+            var castleControllerFactory = new CastleControllerFactory(Dependencies.Container);
             ControllerBuilder.Current.SetControllerFactory(castleControllerFactory);
 
             AreaRegistration.RegisterAllAreas();
@@ -26,7 +22,6 @@ namespace Menu.Client
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfiguration.Configure();
-
         }
     }
 }

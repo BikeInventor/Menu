@@ -5,7 +5,7 @@ using Menu.Contracts.DataContracts;
 namespace Menu.Contracts.ServiceContracts
 {
     [ServiceContract]
-    public interface ICategoryService
+    public interface ICategoryService : IServiceContract
     {
         [OperationContract]
         long AddCategory(CategoryData category);

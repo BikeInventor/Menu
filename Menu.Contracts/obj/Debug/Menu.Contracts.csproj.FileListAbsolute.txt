@@ -3,4 +3,3 @@ C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Contracts
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Contracts\bin\Debug\Menu.Contracts.pdb
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Contracts\obj\Debug\Menu.Contracts.dll
 C:\Users\Admin\documents\visual studio 2015\Projects\Menu.Service\Menu.Contracts\obj\Debug\Menu.Contracts.pdb
-C:\Users\Admin\Documents\Visual Studio 2015\Projects\Menu.Service\Menu.Contracts\obj\Debug\Menu.Contracts.csprojResolveAssemblyReference.cache

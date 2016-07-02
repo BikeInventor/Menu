@@ -149,9 +149,6 @@
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security">
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
@@ -196,7 +193,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Util\ApplicationCastleInstaller.cs" />
     <Compile Include="Util\CastleControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +255,10 @@
     <ProjectReference Include="..\Menu.Contracts\Menu.Contracts.csproj">
       <Project>{5f84fd31-1c16-43ca-bfe4-35ea508aa3b7}</Project>
       <Name>Menu.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Menu.IoCLoader\Menu.IoCLoader.csproj">
+      <Project>{E6AB9555-EF66-406F-AC38-77395755C928}</Project>
+      <Name>Menu.IoCLoader</Name>
     </ProjectReference>
     <ProjectReference Include="..\Menu.Proxies\Menu.Proxies.csproj">
       <Project>{56ccfd22-64ed-414c-a3fb-4f0fe962af60}</Project>

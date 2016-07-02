@@ -1,14 +1,24 @@
 ﻿using Castle.Windsor;
+using Menu.IoCLoader.Installers;
 
-namespace Menu.IoCLoader.App_Code
+namespace Menu.IoCLoader
 {
+    public enum ApplicationType
+    {
+        Client,
+        Service
+    }
+
     public class IoCInitializer
     {
-        public static WindsorContainer GetInitializedContainer()
+        public static WindsorContainer GetContainer(ApplicationType appType)
         {
             var container = new WindsorContainer();
 
-            container.Install(new ServiceDependenciesInstaller());
+            if (appType == ApplicationType.Service)
+                container.Install(new ServiceDependenciesInstaller());
+            else
+                container.Install(new ClientDependenciesInstaller());
 
             return container;
         }

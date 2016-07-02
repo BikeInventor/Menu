@@ -5,7 +5,7 @@ using Menu.Contracts.DataContracts;
 namespace Menu.Contracts.ServiceContracts
 {
     [ServiceContract]
-    public interface IMenuService
+    public interface IMenuService : IServiceContract
     {
         [OperationContract]
         int AddMenuItem(MenuItemData menuItem);
@@ -22,7 +22,6 @@ namespace Menu.Contracts.ServiceContracts
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
         void DeleteMenuItem(int id);
-
     }
     
 }
