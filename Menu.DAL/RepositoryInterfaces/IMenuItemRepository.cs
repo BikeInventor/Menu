@@ -5,6 +5,5 @@ namespace Menu.DAL.RepositoryInterfaces
 {
     public interface IMenuItemRepository : IRepository<MenuItem, int>
     {
-
     }
 }

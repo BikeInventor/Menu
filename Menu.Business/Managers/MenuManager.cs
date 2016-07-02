@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Menu.Business.Core;
 using Menu.Business.Exceptions;
@@ -57,7 +58,6 @@ namespace Menu.Business.Managers
         public void UpdateMenuItem(MenuItemData updatedItem)
         {
             var itemToUpdate = _unitOfWork.MenuItems.Get(updatedItem.Id);
-
             if (itemToUpdate == null)
             {
                 throw new ObjectNotFoundException
@@ -67,10 +67,19 @@ namespace Menu.Business.Managers
                 };
             }
 
-            updatedItem.Created = itemToUpdate.Created;
-            updatedItem.LastEdited = DateTime.Now;
+            itemToUpdate.LastEdited = DateTime.Now;
+            itemToUpdate.Name = updatedItem.Name;
+            itemToUpdate.Amount = updatedItem.Amount;
+            itemToUpdate.Price = updatedItem.Price;
+            itemToUpdate.Categories.Clear();
+            
+            updatedItem.Categories.ToList()
+                .ForEach(c =>
+                {
+                    itemToUpdate.Categories.Add(_unitOfWork.Categories.Get(c.Id));
+                });
 
-            _unitOfWork.MenuItems.Update(Mapper.Map<MenuItemData, MenuItem>(updatedItem));
+            _unitOfWork.MenuItems.Update(itemToUpdate);
             _unitOfWork.Save();
         }
 

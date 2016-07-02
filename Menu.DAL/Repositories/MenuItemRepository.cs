@@ -1,4 +1,6 @@
-﻿using Menu.Data;
+﻿using System.Data.Entity;
+using System.Linq;
+using Menu.Data;
 using Menu.DAL.Core;
 using Menu.DAL.RepositoryInterfaces;
 
@@ -8,6 +10,7 @@ namespace Menu.DAL.Repositories
     {
         public MenuItemRepository(MenuDbContext dbContext) : base(dbContext)
         {
+
         }
     }
 }
