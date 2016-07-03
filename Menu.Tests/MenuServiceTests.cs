@@ -9,6 +9,7 @@ using Menu.DAL.RepositoryInterfaces;
 using Menu.Service.Mappings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Assert = NUnit.Framework.Assert;
 
 namespace Menu.Tests
 {
@@ -53,14 +54,16 @@ namespace Menu.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ObjectNotFoundException))]
         public void GetMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
             //Arrange
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
             //Act
-            menuManager.GetMenuItem(100);
+            var ex = Assert.Throws<ObjectNotFoundException>(() => { menuManager.GetMenuItem(100); });
+
+            //Assert
+            Assert.AreEqual(ex.GetType(), typeof(ObjectNotFoundException));
         }
 
         [TestMethod]
@@ -104,20 +107,21 @@ namespace Menu.Tests
             menuManager.DeleteMenuItem(5);
             var testItemsCount = menuManager.GetMenuItems().Count();
 
-
             //Assert
             Assert.IsTrue(testItemsCount == 0);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ObjectNotFoundException))]
         public void DeleteMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
             //Arrange
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
             //Act
-            menuManager.DeleteMenuItem(100);
+            var ex = Assert.Throws<ObjectNotFoundException>(() => { menuManager.DeleteMenuItem(100); });
+
+            //Assert
+            Assert.AreEqual(ex.GetType(), typeof(ObjectNotFoundException));
         }
     }
 
