@@ -9,6 +9,7 @@ namespace Menu.Client.Models
     {
         public long Id { get; set; }
 
+        [Required(ErrorMessage = "Поле должно быть заполнено")]
         public string Name { get; set; }
 
         public DateTime Created { get; set; }

@@ -61,7 +61,7 @@
                                                 <div style="min-width: 180px">@item.Name</div>
                                             </td>
                                             <td>
-                                                <a href="@Url.Action("ExcludeCategory", "Home",new {id = Model.Id, catId = item.Id})" class="btn btn-sm btn-danger">
+                                                <a href="@Url.Action("ExcludeCategory", "Home",new {id = Model.Id, catId = item.Id})" class="btn btn-xs btn-danger">
                                                     Убрать позицию из категории  
                                                 </a>                                           
                                             </td>
@@ -86,7 +86,7 @@
                                             <div style="min-width: 180px">@item.Name</div>
                                         </td>
                                         <td>
-                                            <a href="@Url.Action("IncludeCategory", "Home", new {id = Model.Id, catId = item.Id})" class="btn btn-sm btn-success">
+                                            <a href="@Url.Action("IncludeCategory", "Home", new {id = Model.Id, catId = item.Id})" class="btn btn-xs btn-success">
                                                 Добавить позицию в категорию
                                             </a> 
                                         </td>
@@ -119,6 +119,7 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
     <script type="text/javascript">
     $(document)
         .ready(function() {

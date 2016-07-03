@@ -8,7 +8,7 @@ namespace Menu.Client
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+
         }
     }
 }
