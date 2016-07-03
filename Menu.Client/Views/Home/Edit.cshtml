@@ -61,7 +61,9 @@
                                                 <div style="min-width: 180px">@item.Name</div>
                                             </td>
                                             <td>
-                                                @Html.ActionLink("[Убрать позицию из категории]", "ExcludeCategory", new {id = Model.Id, catId = item.Id})
+                                                <a href="@Url.Action("ExcludeCategory", "Home",new {id = Model.Id, catId = item.Id})" class="btn btn-sm btn-danger">
+                                                    Убрать позицию из категории  
+                                                </a>                                           
                                             </td>
                                         </tr>
                                     </table>
@@ -84,7 +86,9 @@
                                             <div style="min-width: 180px">@item.Name</div>
                                         </td>
                                         <td>
-                                            @Html.ActionLink("[Добавить позицию в категорию]", "IncludeCategory", new { id = Model.Id, catId = item.Id })
+                                            <a href="@Url.Action("IncludeCategory", "Home", new {id = Model.Id, catId = item.Id})" class="btn btn-sm btn-success">
+                                                Добавить позицию в категорию
+                                            </a> 
                                         </td>
                                     </tr>
                                 </table>

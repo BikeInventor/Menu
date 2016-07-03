@@ -15,8 +15,15 @@
     </div>
     <div class="panel-body">
         <p>
-            @Html.ActionLink("Добавить позицию", "Create", null, new {@class = "btn btn-success btn-large"})
-            @Html.ActionLink("Перейти к категориям", "Index", "Home", null, new {@class = "btn btn-success btn-large"})
+            <a href="@Url.Action("Create", "Category")" class="btn btn-success">
+                Добавить позицию
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </a>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-success">
+                Перейти к списку позиций
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+            </a>
+          
         </p>
 
         <table class="table">
