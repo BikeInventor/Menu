@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Menu.Contracts.ServiceContracts;
-using System.ServiceModel;
 using Menu.Contracts.DataContracts;
+using Menu.Proxies.Core;
 
 namespace Menu.Proxies
 {
-    public class CategoryClient : ClientBase<ICategoryService>, ICategoryService
+    public class CategoryClient : DisposableClientBase<ICategoryService>, ICategoryService
     {
         public long AddCategory(CategoryData category)
         {

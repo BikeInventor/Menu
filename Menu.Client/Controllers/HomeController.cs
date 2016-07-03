@@ -4,22 +4,31 @@ using System.Linq;
 using System.ServiceModel;
 using System.Web.Mvc;
 using AutoMapper;
+using Menu.Client.Controllers.Core;
 using Menu.Client.Models;
+using Menu.Contracts;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
 using Menu.Proxies.Core;
 
 namespace Menu.Client.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ServiceDisposingController
     {
-        private readonly IMenuService _menuClient;
-        private readonly ICategoryService _categoryClient;
+        private readonly IMenuService _menuService;
+        private readonly ICategoryService _categoryService;
 
         public HomeController(IProxyFactory proxyFactory)
         {
-            _menuClient = proxyFactory.GetProxy<IMenuService>();
-            _categoryClient = proxyFactory.GetProxy<ICategoryService>();
+            _menuService = proxyFactory.GetProxy<IMenuService>();
+            _categoryService = proxyFactory.GetProxy<ICategoryService>();
+        }
+
+        protected override void RegisterServices(ICollection<IServiceContract> services)
+        {
+            base.RegisterServices(services);
+            services.Add(_categoryService);
+            services.Add(_categoryService);
         }
 
         public ActionResult Index()
@@ -27,7 +36,7 @@ namespace Menu.Client.Controllers
             try
             {
                 var categories = Mapper.Map<IEnumerable<CategoryData>,
-                IEnumerable<CategoryViewModel>>(_categoryClient.GetCategories());
+                IEnumerable<CategoryViewModel>>(_categoryService.GetCategories());
 
                 return View(categories);
             }
@@ -54,7 +63,7 @@ namespace Menu.Client.Controllers
                 if (ModelState.IsValid)
                 {
                     var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
-                    _menuClient.AddMenuItem(menuItem);
+                    _menuService.AddMenuItem(menuItem);
                 }
                 return Redirect("/Home/MenuItems");
             }
@@ -79,8 +88,8 @@ namespace Menu.Client.Controllers
 
             try
             {
-                var editItem = _menuClient.GetMenuItem(id.Value);
-                var allCategories = _categoryClient.GetCategories();
+                var editItem = _menuService.GetMenuItem(id.Value);
+                var allCategories = _categoryService.GetCategories();
 
                 var notCategoriesOfItem = allCategories
                     .Where(cat => !editItem.Categories
@@ -115,9 +124,9 @@ namespace Menu.Client.Controllers
                 if (ModelState.IsValid)
                 {
                     var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
-                    editItem.Categories = _menuClient.GetMenuItem(itemViewModel.Id).Categories;
+                    editItem.Categories = _menuService.GetMenuItem(itemViewModel.Id).Categories;
 
-                    _menuClient.UpdateMenuItem(editItem);
+                    _menuService.UpdateMenuItem(editItem);
                 }
                 return Redirect("/Home/MenuItems");
             }
@@ -147,7 +156,7 @@ namespace Menu.Client.Controllers
 
             try
             {
-                _menuClient.DeleteMenuItem(id.Value);
+                _menuService.DeleteMenuItem(id.Value);
                 return Redirect(Request.UrlReferrer.ToString());
             }
             catch (FaultException<NotFoundException> ex)
@@ -175,7 +184,7 @@ namespace Menu.Client.Controllers
             try
             {
                 var menuItems = Mapper.Map<IEnumerable<MenuItemData>,
-                IEnumerable<ItemViewModel>>(_menuClient.GetMenuItems());
+                IEnumerable<ItemViewModel>>(_menuService.GetMenuItems());
 
                 return View(menuItems);
             }
@@ -191,24 +200,24 @@ namespace Menu.Client.Controllers
 
         public ActionResult IncludeCategory(int id, long catId)
         {
-            var category = _categoryClient.GetCategory(catId);
-            var menuItem = _menuClient.GetMenuItem(id);
+            var category = _categoryService.GetCategory(catId);
+            var menuItem = _menuService.GetMenuItem(id);
 
             menuItem.Categories.Add(category);
 
-            _menuClient.UpdateMenuItem(menuItem);
+            _menuService.UpdateMenuItem(menuItem);
 
             return Redirect(Request.UrlReferrer.ToString());
         }
 
         public ActionResult ExcludeCategory(int id, long catId)
         {
-            var menuItem = _menuClient.GetMenuItem(id);
+            var menuItem = _menuService.GetMenuItem(id);
 
             menuItem.Categories = menuItem.Categories
                 .Where(cat => cat.Id != catId).ToList();
 
-            _menuClient.UpdateMenuItem(menuItem);
+            _menuService.UpdateMenuItem(menuItem);
 
             return Redirect(Request.UrlReferrer.ToString());
         }

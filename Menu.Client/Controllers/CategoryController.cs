@@ -1,23 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.Web.Mvc;
 using AutoMapper;
+using Menu.Client.Controllers.Core;
 using Menu.Client.Models;
+using Menu.Contracts;
 using Menu.Contracts.DataContracts;
 using Menu.Contracts.ServiceContracts;
 using Menu.Proxies.Core;
 
 namespace Menu.Client.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : ServiceDisposingController
     {
-        private readonly IMenuService _menuClient;
-        private readonly ICategoryService _categoryClient;
+        private readonly ICategoryService _categoryService;
 
         public CategoryController(IProxyFactory proxyFactory)
         {
-            _menuClient = proxyFactory.GetProxy<IMenuService>();
-            _categoryClient = proxyFactory.GetProxy<ICategoryService>();
+            _categoryService = proxyFactory.GetProxy<ICategoryService>();
+        }
+
+        protected override void RegisterServices(ICollection<IServiceContract> services)
+        {
+            base.RegisterServices(services);
+            services.Add(_categoryService);
         }
 
         public ActionResult Get(long? id)
@@ -30,7 +37,7 @@ namespace Menu.Client.Controllers
                 });
             try
             {
-                var category = _categoryClient.GetCategory(id.Value);
+                var category = _categoryService.GetCategory(id.Value);
                 var categoryViewModel = Mapper.Map<CategoryData, CategoryViewModel>(category);
                 return View(categoryViewModel);
             }
@@ -64,7 +71,7 @@ namespace Menu.Client.Controllers
                 if (ModelState.IsValid)
                 {
                     var category = Mapper.Map<CategoryViewModel, CategoryData>(categoryViewModel);
-                    _categoryClient.AddCategory(category);
+                    _categoryService.AddCategory(category);
                 }
                 return Redirect("/Home/Index");
 
@@ -89,7 +96,7 @@ namespace Menu.Client.Controllers
                 });
             try
             {
-                _categoryClient.DeleteCategory(id.Value);
+                _categoryService.DeleteCategory(id.Value);
                 return Redirect("/Home/Index");
             }
             catch (FaultException<NotFoundException> ex)

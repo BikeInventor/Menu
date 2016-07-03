@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using Menu.Contracts.ServiceContracts;
-using System.ServiceModel;
 using Menu.Contracts.DataContracts;
+using Menu.Proxies.Core;
 
 namespace Menu.Proxies
 {
-    public class MenuClient : ClientBase<IMenuService>, IMenuService
+    public class MenuClient : DisposableClientBase<IMenuService>, IMenuService
     {
         public int AddMenuItem(MenuItemData menuItem)
         {

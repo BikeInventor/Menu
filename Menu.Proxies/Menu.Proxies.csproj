@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryClient.cs" />
+    <Compile Include="Core\DisposableClientBase.cs" />
     <Compile Include="Core\IProxyFactory.cs" />
     <Compile Include="MenuClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

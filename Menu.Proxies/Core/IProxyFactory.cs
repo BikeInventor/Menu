@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Menu.Common;
+﻿using Menu.Contracts;
 
 namespace Menu.Proxies.Core
 {
     public interface IProxyFactory
     {
-        T GetProxy<T>();
+        T GetProxy<T>() where T : IServiceContract;
     }
 }
