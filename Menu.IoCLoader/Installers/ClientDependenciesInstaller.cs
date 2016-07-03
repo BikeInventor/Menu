@@ -13,7 +13,6 @@ namespace Menu.IoCLoader.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-
             container.Register(Component.For<IProxyFactory>()
                 .ImplementedBy<ProxyFactory>());
 
