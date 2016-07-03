@@ -36,7 +36,10 @@ namespace Menu.Service
 
         public void UpdateMenuItem(MenuItemData updatedItem)
         {
+            //ExecuteWithExceptionHandling(() => _menuManager.UpdateMenuItem(updatedItem));
+            var a = 1;
             ExecuteWithExceptionHandling(() => _menuManager.UpdateMenuItem(updatedItem));
+            var b = 3;
         }
     }
 }

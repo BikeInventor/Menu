@@ -11,12 +11,15 @@ namespace Menu.Contracts.ServiceContracts
         int AddMenuItem(MenuItemData menuItem);
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         MenuItemData GetMenuItem(int id);
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         IEnumerable<MenuItemData> GetMenuItems();
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         void UpdateMenuItem(MenuItemData oldItem);
 
         [OperationContract]

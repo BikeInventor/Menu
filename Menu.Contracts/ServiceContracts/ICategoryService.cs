@@ -11,12 +11,15 @@ namespace Menu.Contracts.ServiceContracts
         long AddCategory(CategoryData category);
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         CategoryData GetCategory(long id);
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         IEnumerable<CategoryData> GetCategories();
 
         [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
         void UpdateCategory(CategoryData oldCategory);
 
         [OperationContract]
