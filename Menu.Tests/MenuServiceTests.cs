@@ -31,6 +31,7 @@ namespace Menu.Tests
         [TestMethod]
         public void GetMenuItem_Should_Return_MenuItem_By_Id_If_Item_Exist()
         {
+            //Arrange
             var testMenuItem = new MenuItem()
             {
                 Id = 5,
@@ -42,8 +43,10 @@ namespace Menu.Tests
             _mockMenuRepo.Setup(repo => repo.Get(testMenuItem.Id)).Returns(testMenuItem);
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
+            //Act
             var returnedItem = menuManager.GetMenuItem(testMenuItem.Id);
 
+            //Assert
             Assert.IsTrue(returnedItem.Name == "Вода");
             Assert.IsTrue(returnedItem.Amount == "0.5л");
             Assert.IsTrue(returnedItem.Price == 100.00M);
@@ -53,14 +56,17 @@ namespace Menu.Tests
         [ExpectedException(typeof(ObjectNotFoundException))]
         public void GetMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
+            //Arrange
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
+            //Act
             menuManager.GetMenuItem(100);
         }
 
         [TestMethod]
         public void AddMenuItem_Should_Add_MenuItem()
         {
+            //Arrange
             var testMenuItems = new List<MenuItem>();
 
             _mockMenuRepo.Setup(r => r.Add(It.IsAny<MenuItem>()))
@@ -68,15 +74,19 @@ namespace Menu.Tests
             _mockMenuRepo.Setup(r => r.GetAll()).Returns(testMenuItems);
                 
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
+
+            //Act
             menuManager.AddMenuItem(new MenuItemData());
             var testItemsCount = menuManager.GetMenuItems().Count();
 
+            //Assert
             Assert.IsTrue(testItemsCount == 1);
         }
 
         [TestMethod]
         public void DeleteMenuItem_Should_Delete_MenuItem()
         {
+            //Arrange
             var testMenuItems = new List<MenuItem>() {new MenuItem() { Id = 5 }};
 
             _mockMenuRepo.Setup(r => r.Delete(It.IsAny<MenuItem>()))
@@ -89,9 +99,13 @@ namespace Menu.Tests
             _mockMenuRepo.Setup(r => r.GetAll()).Returns(testMenuItems);
 
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
+
+            //Act
             menuManager.DeleteMenuItem(5);
             var testItemsCount = menuManager.GetMenuItems().Count();
 
+
+            //Assert
             Assert.IsTrue(testItemsCount == 0);
         }
 
@@ -99,8 +113,10 @@ namespace Menu.Tests
         [ExpectedException(typeof(ObjectNotFoundException))]
         public void DeleteMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
+            //Arrange
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
+            //Act
             menuManager.DeleteMenuItem(100);
         }
     }
