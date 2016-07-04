@@ -7,20 +7,18 @@ using Menu.Data;
 using Menu.DAL.Core.Interfaces;
 using Menu.DAL.RepositoryInterfaces;
 using Menu.Service.Mappings;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Moq;
-using Assert = NUnit.Framework.Assert;
 
 namespace Menu.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class MenuServiceTests
     {
         private Mock<IUnitOfWork> _mockUnitOfWork;
         private Mock<IMenuItemRepository> _mockMenuRepo;
 
-        [TestInitialize]
-        public void MenuServiceTestsInit()
+        public MenuServiceTests()
         {
             _mockUnitOfWork = new Mock<IUnitOfWork>();
             _mockMenuRepo = new Mock<IMenuItemRepository>();
@@ -29,7 +27,7 @@ namespace Menu.Tests
             AutoMapperConfiguration.Configure();
         }
 
-        [TestMethod]
+        [Test]
         public void GetMenuItem_Should_Return_MenuItem_By_Id_If_Item_Exist()
         {
             //Arrange
@@ -53,7 +51,7 @@ namespace Menu.Tests
             Assert.IsTrue(returnedItem.Price == 100.00M);
         }
 
-        [TestMethod]
+        [Test]
         public void GetMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
             //Arrange
@@ -66,7 +64,7 @@ namespace Menu.Tests
             Assert.AreEqual(ex.GetType(), typeof(ObjectNotFoundException));
         }
 
-        [TestMethod]
+        [Test]
         public void AddMenuItem_Should_Add_MenuItem()
         {
             //Arrange
@@ -86,7 +84,7 @@ namespace Menu.Tests
             Assert.IsTrue(testItemsCount == 1);
         }
 
-        [TestMethod]
+        [Test]
         public void DeleteMenuItem_Should_Delete_MenuItem()
         {
             //Arrange
@@ -111,7 +109,7 @@ namespace Menu.Tests
             Assert.IsTrue(testItemsCount == 0);
         }
 
-        [TestMethod]
+        [Test]
         public void DeleteMenuItem_Should_Throw_ObjectNotFoundException_If_Item_Is_Not_Exist()
         {
             //Arrange
