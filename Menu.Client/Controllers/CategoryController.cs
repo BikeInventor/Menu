@@ -38,7 +38,7 @@ namespace Menu.Client.Controllers
             try
             {
                 var category = _categoryService.GetCategory(id.Value);
-                var categoryViewModel = Mapper.Map<CategoryData, CategoryViewModel>(category);
+                var categoryViewModel = Mapper.Map<CategoryDto, CategoryViewModel>(category);
                 return View(categoryViewModel);
             }
             catch (FaultException<NotFoundException> ex)
@@ -70,7 +70,7 @@ namespace Menu.Client.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var category = Mapper.Map<CategoryViewModel, CategoryData>(categoryViewModel);
+                    var category = Mapper.Map<CategoryViewModel, CategoryDto>(categoryViewModel);
                     _categoryService.AddCategory(category);
                 }
                 return Redirect("/Home/Index");

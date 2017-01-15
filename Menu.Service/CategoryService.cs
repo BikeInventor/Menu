@@ -14,7 +14,7 @@ namespace Menu.Service
             _categoryManager = categoryManager;
         }
 
-        public long AddCategory(CategoryData category)
+        public long AddCategory(CategoryDto category)
         {
             return ExecuteWithExceptionHandling(() => _categoryManager.AddCategory(category));
         }
@@ -24,17 +24,17 @@ namespace Menu.Service
             ExecuteWithExceptionHandling(() => _categoryManager.DeleteCategory(id));
         }
 
-        public CategoryData GetCategory(long id)
+        public CategoryDto GetCategory(long id)
         {
             return ExecuteWithExceptionHandling(() => _categoryManager.GetCategory(id));
         }
 
-        public IEnumerable<CategoryData> GetCategories()
+        public IEnumerable<CategoryDto> GetCategories()
         {
             return ExecuteWithExceptionHandling(() => _categoryManager.GetCategories());
         }
 
-        public void UpdateCategory(CategoryData updatedCategory)
+        public void UpdateCategory(CategoryDto updatedCategory)
         {
             ExecuteWithExceptionHandling(() => _categoryManager.UpdateCategory(updatedCategory));
         }

@@ -56,8 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContracts\CategoryData.cs" />
-    <Compile Include="DataContracts\MenuItemData.cs" />
+    <Compile Include="DataContracts\CategoryDto.cs" />
+    <Compile Include="DataContracts\MenuItemDto.cs" />
     <Compile Include="DataContracts\NotFoundException.cs" />
     <Compile Include="IServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

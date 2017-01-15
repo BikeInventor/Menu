@@ -14,7 +14,7 @@ namespace Menu.Service
             _menuManager = menuManager;
         }
 
-        public int AddMenuItem(MenuItemData menuItem)
+        public int AddMenuItem(MenuItemDto menuItem)
         {
             return ExecuteWithExceptionHandling(() => _menuManager.AddMenuItem(menuItem));
         }
@@ -24,17 +24,17 @@ namespace Menu.Service
             ExecuteWithExceptionHandling(() => _menuManager.DeleteMenuItem(id));
         }
 
-        public MenuItemData GetMenuItem(int id)
+        public MenuItemDto GetMenuItem(int id)
         {
             return ExecuteWithExceptionHandling(() => _menuManager.GetMenuItem(id));
         }
 
-        public IEnumerable<MenuItemData> GetMenuItems()
+        public IEnumerable<MenuItemDto> GetMenuItems()
         {
             return ExecuteWithExceptionHandling(() => _menuManager.GetMenuItems());
         }
 
-        public void UpdateMenuItem(MenuItemData updatedItem)
+        public void UpdateMenuItem(MenuItemDto updatedItem)
         {
             //ExecuteWithExceptionHandling(() => _menuManager.UpdateMenuItem(updatedItem));
             var a = 1;

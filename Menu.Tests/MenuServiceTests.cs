@@ -77,7 +77,7 @@ namespace Menu.Tests
             var menuManager = new MenuManager(_mockUnitOfWork.Object);
 
             //Act
-            menuManager.AddMenuItem(new MenuItemData());
+            menuManager.AddMenuItem(new MenuItemDto());
             var testItemsCount = menuManager.GetMenuItems().Count();
 
             //Assert

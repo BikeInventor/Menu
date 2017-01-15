@@ -14,8 +14,8 @@ namespace Menu.Client.Mappings
 
         protected override void Configure()
         {
-            Mapper.CreateMap<ItemViewModel, MenuItemData>();
-            Mapper.CreateMap<CategoryViewModel, CategoryData>();
+            Mapper.CreateMap<ItemViewModel, MenuItemDto>();
+            Mapper.CreateMap<CategoryViewModel, CategoryDto>();
         }
     }
 }

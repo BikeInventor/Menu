@@ -7,22 +7,22 @@ namespace Menu.Proxies
 {
     public class CategoryClient : DisposableClientBase<ICategoryService>, ICategoryService
     {
-        public long AddCategory(CategoryData category)
+        public long AddCategory(CategoryDto category)
         {
             return Channel.AddCategory(category);
         }
 
-        public CategoryData GetCategory(long id)
+        public CategoryDto GetCategory(long id)
         {
             return Channel.GetCategory(id);
         }
 
-        public IEnumerable<CategoryData> GetCategories()
+        public IEnumerable<CategoryDto> GetCategories()
         {
             return Channel.GetCategories();
         }
 
-        public void UpdateCategory(CategoryData oldCategory)
+        public void UpdateCategory(CategoryDto oldCategory)
         {
             Channel.UpdateCategory(oldCategory);
         }

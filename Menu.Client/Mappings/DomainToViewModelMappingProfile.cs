@@ -10,8 +10,8 @@ namespace Menu.Client.Mappings
 
         protected override void Configure()
         {
-            Mapper.CreateMap<MenuItemData, ItemViewModel>();
-            Mapper.CreateMap<CategoryData, CategoryViewModel>();
+            Mapper.CreateMap<MenuItemDto, ItemViewModel>();
+            Mapper.CreateMap<CategoryDto, CategoryViewModel>();
 
             Mapper.CreateMap<NotFoundException, ErrorViewModel>();
         }

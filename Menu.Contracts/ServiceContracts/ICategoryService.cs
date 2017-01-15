@@ -8,19 +8,19 @@ namespace Menu.Contracts.ServiceContracts
     public interface ICategoryService : IServiceContract
     {
         [OperationContract]
-        long AddCategory(CategoryData category);
+        long AddCategory(CategoryDto category);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        CategoryData GetCategory(long id);
+        CategoryDto GetCategory(long id);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        IEnumerable<CategoryData> GetCategories();
+        IEnumerable<CategoryDto> GetCategories();
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        void UpdateCategory(CategoryData oldCategory);
+        void UpdateCategory(CategoryDto oldCategory);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]

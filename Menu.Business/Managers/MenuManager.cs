@@ -20,9 +20,9 @@ namespace Menu.Business.Managers
             _unitOfWork = unitOfWork;
         }
 
-        public int AddMenuItem(MenuItemData menuItem)
+        public int AddMenuItem(MenuItemDto menuItem)
         {
-            var newItem = Mapper.Map<MenuItemData, MenuItem>(menuItem);
+            var newItem = Mapper.Map<MenuItemDto, MenuItem>(menuItem);
             newItem.Created = DateTime.Now;
             newItem.LastEdited = DateTime.Now;
 
@@ -32,7 +32,7 @@ namespace Menu.Business.Managers
             return newItem.Id;
         }
 
-        public MenuItemData GetMenuItem(int id)
+        public MenuItemDto GetMenuItem(int id)
         {
             var menuItem = _unitOfWork.MenuItems.Get(id);
 
@@ -46,16 +46,16 @@ namespace Menu.Business.Managers
 
             }
 
-            return Mapper.Map<MenuItem, MenuItemData>(menuItem);
+            return Mapper.Map<MenuItem, MenuItemDto>(menuItem);
         }
 
-        public IEnumerable<MenuItemData> GetMenuItems()
+        public IEnumerable<MenuItemDto> GetMenuItems()
         {
             return Mapper.Map<IEnumerable<MenuItem>,
-                    IEnumerable<MenuItemData>>(_unitOfWork.MenuItems.GetAll());
+                    IEnumerable<MenuItemDto>>(_unitOfWork.MenuItems.GetAll());
         }
 
-        public void UpdateMenuItem(MenuItemData updatedItem)
+        public void UpdateMenuItem(MenuItemDto updatedItem)
         {
             var itemToUpdate = _unitOfWork.MenuItems.Get(updatedItem.Id);
             if (itemToUpdate == null)

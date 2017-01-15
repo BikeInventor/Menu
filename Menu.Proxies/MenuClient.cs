@@ -7,22 +7,22 @@ namespace Menu.Proxies
 {
     public class MenuClient : DisposableClientBase<IMenuService>, IMenuService
     {
-        public int AddMenuItem(MenuItemData menuItem)
+        public int AddMenuItem(MenuItemDto menuItem)
         {
             return Channel.AddMenuItem(menuItem);
         }
 
-        public MenuItemData GetMenuItem(int id)
+        public MenuItemDto GetMenuItem(int id)
         {
             return Channel.GetMenuItem(id);
         }
 
-        public IEnumerable<MenuItemData> GetMenuItems()
+        public IEnumerable<MenuItemDto> GetMenuItems()
         {
             return Channel.GetMenuItems();
         }
 
-        public void UpdateMenuItem(MenuItemData oldItem)
+        public void UpdateMenuItem(MenuItemDto oldItem)
         {
             Channel.UpdateMenuItem(oldItem);
         }

@@ -7,13 +7,17 @@ namespace Menu.DAL
     {
         public MenuDbContext()
             : base("MenuDBConnection")
-        { }
+        {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+        }
 
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
             modelBuilder.Entity<MenuItem>()
                 .HasMany(m => m.Categories)
                 .WithMany(c => c.MenuItems)
@@ -26,7 +30,5 @@ namespace Menu.DAL
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
-
 }

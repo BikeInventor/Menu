@@ -4,15 +4,15 @@ using Menu.Contracts.DataContracts;
 
 namespace Menu.Business.ManagersInterfaces
 {
-    public interface IMenuManager : IManager<MenuItemData>
+    public interface IMenuManager : IManager<MenuItemDto>
     {
-        int AddMenuItem(MenuItemData menuItem);
+        int AddMenuItem(MenuItemDto menuItem);
 
-        MenuItemData GetMenuItem(int id);
+        MenuItemDto GetMenuItem(int id);
 
-        IEnumerable<MenuItemData> GetMenuItems();
+        IEnumerable<MenuItemDto> GetMenuItems();
 
-        void UpdateMenuItem(MenuItemData oldItem);
+        void UpdateMenuItem(MenuItemDto oldItem);
 
         void DeleteMenuItem(int id);
     }

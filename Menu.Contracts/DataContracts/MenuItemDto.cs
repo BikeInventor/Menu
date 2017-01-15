@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Menu.Contracts.DataContracts
 {
     [DataContract(IsReference = true)]
-    public class CategoryData
+    public class MenuItemDto
     {
         [DataMember]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [DataMember]
         public DateTime Created { get; set; }
@@ -23,6 +20,12 @@ namespace Menu.Contracts.DataContracts
         public string Name { get; set; }
 
         [DataMember]
-        public List<MenuItemData> MenuItems { get; set; } 
+        public string Amount { get; set; }
+        
+        [DataMember]
+        public decimal Price { get; set; }
+
+        [DataMember]
+        public List<CategoryDto> Categories { get; set; } 
     }
 }

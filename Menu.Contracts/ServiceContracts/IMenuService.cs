@@ -8,19 +8,19 @@ namespace Menu.Contracts.ServiceContracts
     public interface IMenuService : IServiceContract
     {
         [OperationContract]
-        int AddMenuItem(MenuItemData menuItem);
+        int AddMenuItem(MenuItemDto menuItem);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        MenuItemData GetMenuItem(int id);
+        MenuItemDto GetMenuItem(int id);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        IEnumerable<MenuItemData> GetMenuItems();
+        IEnumerable<MenuItemDto> GetMenuItems();
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]
-        void UpdateMenuItem(MenuItemData oldItem);
+        void UpdateMenuItem(MenuItemDto oldItem);
 
         [OperationContract]
         [FaultContract(typeof(NotFoundException))]

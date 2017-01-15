@@ -5,10 +5,10 @@ using System.Runtime.Serialization;
 namespace Menu.Contracts.DataContracts
 {
     [DataContract(IsReference = true)]
-    public class MenuItemData
+    public class CategoryDto
     {
         [DataMember]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [DataMember]
         public DateTime Created { get; set; }
@@ -20,12 +20,6 @@ namespace Menu.Contracts.DataContracts
         public string Name { get; set; }
 
         [DataMember]
-        public string Amount { get; set; }
-        
-        [DataMember]
-        public decimal Price { get; set; }
-
-        [DataMember]
-        public List<CategoryData> Categories { get; set; } 
+        public List<MenuItemDto> MenuItems { get; set; } 
     }
 }

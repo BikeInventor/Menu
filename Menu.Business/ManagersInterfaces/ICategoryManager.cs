@@ -4,15 +4,15 @@ using Menu.Contracts.DataContracts;
 
 namespace Menu.Business.ManagersInterfaces
 {
-    public interface ICategoryManager : IManager<CategoryData>
+    public interface ICategoryManager : IManager<CategoryDto>
     {
-        long AddCategory(CategoryData menuItem);
+        long AddCategory(CategoryDto menuItem);
 
-        CategoryData GetCategory(long id);
+        CategoryDto GetCategory(long id);
 
-        IEnumerable<CategoryData> GetCategories();
+        IEnumerable<CategoryDto> GetCategories();
 
-        void UpdateCategory(CategoryData oldItem);
+        void UpdateCategory(CategoryDto oldItem);
 
         void DeleteCategory(long id);
     }

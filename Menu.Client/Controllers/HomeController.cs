@@ -35,7 +35,7 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var categories = Mapper.Map<IEnumerable<CategoryData>,
+                var categories = Mapper.Map<IEnumerable<CategoryDto>,
                 IEnumerable<CategoryViewModel>>(_categoryService.GetCategories());
 
                 return View(categories);
@@ -62,7 +62,7 @@ namespace Menu.Client.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var menuItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                    var menuItem = Mapper.Map<ItemViewModel, MenuItemDto>(itemViewModel);
                     _menuService.AddMenuItem(menuItem);
                 }
                 return Redirect("/Home/MenuItems");
@@ -95,10 +95,10 @@ namespace Menu.Client.Controllers
                     .Where(cat => !editItem.Categories
                     .Select(item => item.Id).Contains(cat.Id));
 
-                ViewBag.CategoriesWithoutItem = Mapper.Map<IEnumerable<CategoryData>,
+                ViewBag.CategoriesWithoutItem = Mapper.Map<IEnumerable<CategoryDto>,
                     IEnumerable<CategoryViewModel>>(notCategoriesOfItem);
 
-                return View(Mapper.Map<MenuItemData, ItemViewModel>(editItem));
+                return View(Mapper.Map<MenuItemDto, ItemViewModel>(editItem));
             }
             catch (FaultException<NotFoundException> ex)
             {
@@ -123,7 +123,7 @@ namespace Menu.Client.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var editItem = Mapper.Map<ItemViewModel, MenuItemData>(itemViewModel);
+                    var editItem = Mapper.Map<ItemViewModel, MenuItemDto>(itemViewModel);
                     editItem.Categories = _menuService.GetMenuItem(itemViewModel.Id).Categories;
 
                     _menuService.UpdateMenuItem(editItem);
@@ -183,7 +183,7 @@ namespace Menu.Client.Controllers
         {
             try
             {
-                var menuItems = Mapper.Map<IEnumerable<MenuItemData>,
+                var menuItems = Mapper.Map<IEnumerable<MenuItemDto>,
                 IEnumerable<ItemViewModel>>(_menuService.GetMenuItems());
 
                 return View(menuItems);

@@ -19,9 +19,9 @@ namespace Menu.Business.Managers
             _unitOfWork = unitOfWork;
         }
 
-        public long AddCategory(CategoryData category)
+        public long AddCategory(CategoryDto category)
         {
-            var newCategory = Mapper.Map<CategoryData, Category>(category);
+            var newCategory = Mapper.Map<CategoryDto, Category>(category);
             newCategory.Created = DateTime.Now;
             newCategory.LastEdited = DateTime.Now;
 
@@ -31,7 +31,7 @@ namespace Menu.Business.Managers
             return newCategory.Id;
         }
 
-        public CategoryData GetCategory(long id)
+        public CategoryDto GetCategory(long id)
         {
             var category = _unitOfWork.Categories.Get(id);
 
@@ -45,16 +45,16 @@ namespace Menu.Business.Managers
 
             }
 
-            return Mapper.Map<Category, CategoryData>(category);
+            return Mapper.Map<Category, CategoryDto>(category);
         }
 
-        public IEnumerable<CategoryData> GetCategories()
+        public IEnumerable<CategoryDto> GetCategories()
         {
             return Mapper.Map<IEnumerable<Category>,
-                    IEnumerable<CategoryData>>(_unitOfWork.Categories.GetAll());
+                    IEnumerable<CategoryDto>>(_unitOfWork.Categories.GetAll());
         }
 
-        public void UpdateCategory(CategoryData updatedCategory)
+        public void UpdateCategory(CategoryDto updatedCategory)
         {
             var categoryToUpdate = _unitOfWork.Categories.Get(updatedCategory.Id);
 
@@ -70,7 +70,7 @@ namespace Menu.Business.Managers
             updatedCategory.Created = categoryToUpdate.Created;
             updatedCategory.LastEdited = DateTime.Now;
 
-            _unitOfWork.Categories.Update(Mapper.Map<CategoryData, Category>(updatedCategory));
+            _unitOfWork.Categories.Update(Mapper.Map<CategoryDto, Category>(updatedCategory));
             _unitOfWork.Save();
         }
 
